@@ -1,0 +1,27 @@
+{
+  "name": "kbase-ui-docs",
+  "version": "0.1.0",
+  "description": "Documentation site for kbase-ui and friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbase/kbase-ui-docs.git"
+  },
+  "keywords": [
+    "kbase",
+    "ui",
+    "docs"
+  ],
+  "author": "KBase Developers",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/kbase/kbase-ui-docs/issues"
+  },
+  "homepage": "https://github.com/kbase/kbase-ui-docs#readme",
+  "dependencies": {
+    "docusaurus": "2.0.0-alpha.19"
+  }
+}
