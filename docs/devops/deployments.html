@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>devops/deployments · KBase UI Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;building-kbase-ui&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#building-kbase-ui&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Building kbase-ui&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="devops/deployments · KBase UI Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;building-kbase-ui&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#building-kbase-ui&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Building kbase-ui&lt;/h1&gt;
+"/><meta property="og:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/kbase-ui-docs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/atom.xml" title="KBase UI Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/feed.xml" title="KBase UI Documentation Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-137652528-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/kbase-ui-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/kbase-ui-docs/css/main.css"/><script src="/kbase-ui-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/kbase-ui-docs/"><img class="logo" src="/kbase-ui-docs/img/kbase_logo.png" alt="KBase UI Documentation"/><h2 class="headerTitleWithLogo">KBase UI Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/kbase-ui-docs/docs/getting-started/" target="_self">Docs</a></li><li class=""><a href="/kbase-ui-docs/help" target="_self">Help</a></li><li class=""><a href="/kbase-ui-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">devops/deployments</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="building-kbase-ui"></a><a href="#building-kbase-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building kbase-ui</h1>
+<p>Although kbase-ui is <em>just</em> a browser web app, it is always used in combination with a web server to deliver it to the browser.</p>
+<p>For more on the kbase-ui code building process, see a description of <a href="/kbase-ui-docs/docs/development/app-building">code building</a>.</p>
+<p>This guide describes the steps to build the kbase-ui deliverable for each common usage scenario, including:</p>
+<ul>
+<li>local development</li>
+<li>CI build and deployment</li>
+<li>Next build and deployment</li>
+<li>Production (appdev &amp; prod) deployment</li>
+</ul>
+<p>Overall, following steps are involved:</p>
+<ul>
+<li>prepare build variables</li>
+<li>launch docker-compose with said variables set</li>
+<li>the docker build:
+<ul>
+<li>runs the kbase-ui build script</li>
+<li>copies the build web-app, configuration, and other assets into the target image</li>
+</ul></li>
+<li>kbase-ui image is now prepared for the current branch</li>
+<li>for ci and prod builds:
+<ul>
+<li>the image is copied to dockerhub</li>
+<li>someone runs the kbase-ui Jenkins job to redeploy a container using the image</li>
+<li>the kbase-ui proxy is configured to route requests to this container</li>
+</ul></li>
+<li>for dev builds:
+<ul>
+<li>the image is a dependency of a local proxy</li>
+<li>the local proxy is build and launched</li>
+<li>the developer may then access kbase-ui locally</li>
+<li>additional developer tasks allow mapping internal, plugin, or library directories into the container for interactive development.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="ci"></a><a href="#ci" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CI</h2>
+<h3><a class="anchor" aria-hidden="true" id="build"></a><a href="#build" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>build</h3>
+<p>The CI build is automated via Travis, triggered by a merge into the develop branch at <a href="https://github.com/kbase/kbase-ui">https://github.com/kbase/kbase-ui</a>.</p>
+<p>As would be expected, this is controlled through <code>.travis.yml</code>.</p>
+<p>The build is conducted through the travis &quot;install&quot; task which runs the following:</p>
+<pre><code class="hljs css language-bash">bash deployment/tools/travis-build.bash
+</code></pre>
+<p>Not much to it!</p>
+<p>The <code>travis-build.bash</code> script prepares environment variables required by Docker Compose, then invokes docker compose up. For details, look in <em>deployment/tools/travis-build.bash</em>.</p>
+<p>[1] First, a few <a href="https://docs.travis-ci.com/user/environment-variables" target="_blank">standard Travis environment variables</a> are exported into environment variables expected by the common Docker Compose file (docker-compose.yml).</p>
+<p>[2] Then, the build date is calculated and exported into the environment; this is also an expected environment variable.</p>
+<p>[3] Then, the <em>BUILD</em> variable is populated based on the current branch. Only <em>develop</em> and <em>master</em> branches are supported. In fact, Travis should only be triggered by merges into develop and master.</p>
+<p>The <code>BUILD</code> variable determines which kbase-ui build configuration is used. See <a href="../development/build-configurations.md">build configurations</a>.</p>
+<p>[4] Finally, Docker Compose is invoked in the standard mode to build but not run the specified image.</p>
+<pre><code class="hljs css language-bash">docker-compose up --no-start
+</code></pre>
+<p>If you are familiar with Docker Compose, you know that it will expect to find a file named <em>docker-compose.yml</em> in the current directory.</p>
+<p>This will result in an image named <code>kbase/kbase-ui:develop</code>, with <em>develop</em> determined by the current git branch.</p>
+<p>Travis is also instructed to copy the image to dockerhub. This is accomplished by a</p>
+<h3><a class="anchor" aria-hidden="true" id="deployment"></a><a href="#deployment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>deployment</h3>
+<h2><a class="anchor" aria-hidden="true" id="production"></a><a href="#production" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Production</h2>
+<h2><a class="anchor" aria-hidden="true" id="build-1"></a><a href="#build-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>build</h2>
+<pre><code class="hljs css language-bash">BUILD=prod bash tools/docker/travis-build.bash
+</code></pre>
+<blockquote>
+<p>BUILD=ci docker-compose -f docker-compose-travis.yml up --no-start --build</p>
+</blockquote>
+<p>This will result in an image named <code>kbase/kbase-ui:master</code> (if that was the travis branch)</p>
+<h2><a class="anchor" aria-hidden="true" id="local-development"></a><a href="#local-development" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Local Development</h2>
+<p>BUILD=dev DEPLOY_ENV=dev docker-compose -f docker-compose-dev.yml -f docker-compose-dev.override.yml up</p>
+<p>BUILD=dev DEPLOY_ENV=dev docker-compose -f docker-compose-dev.yml up --build</p>
+<p>will build kbase-ui, kbase-ui-proxy, and start them at ci.kbase.us</p>
+<p>BUILD can be dev, ci, prod
+DEPLOY_ENV can be dev, ci, next, appdev, prod</p>
+<p>Fake Travis</p>
+<p>To test the travis build:</p>
+<p>BUILD=dev bash tools/docker/fake-travis-build.bash</p>
+<p>This build is &quot;fake&quot; because instead of being made in the presence of real travis environment variables, the required travis variables are created directly (via git). But it uses the travis docker compose file.</p>
+<p>Real Travis</p>
+<p>In ci:</p>
+<p>For prod:</p>
+<p>BUILD=prod docker-compose -f docker-compose-travis.yml up --no-start --build</p>
+<p>This will result in kbase/kbase-ui:master (if that was the travis branch)</p>
+<p>TODO: what about kbase/kbase-ui:vX.Y.Z where X.Y.Z is the git tag, the kbase-ui version.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#ci">CI</a><ul class="toc-headings"><li><a href="#build">build</a></li><li><a href="#deployment">deployment</a></li></ul></li><li><a href="#production">Production</a></li><li><a href="#build-1">build</a></li><li><a href="#local-development">Local Development</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/kbase-ui-docs/" class="nav-home"><img src="/kbase-ui-docs/img/favicon.ico" alt="KBase UI Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/kbase-ui-docs/docs/en/getting-started/index.html">Getting Started</a></div><div><h5>Community</h5><a href="/kbase-ui-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/kbase-ui-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/kbase/kbase-ui/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 KBase </section></footer></div></body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>plugins/developing · KBase UI Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;developing-kbase-ui-plugins&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#developing-kbase-ui-plugins&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Developing kbase-ui Plugins&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="plugins/developing · KBase UI Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;developing-kbase-ui-plugins&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#developing-kbase-ui-plugins&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Developing kbase-ui Plugins&lt;/h1&gt;
+"/><meta property="og:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/kbase-ui-docs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/atom.xml" title="KBase UI Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/feed.xml" title="KBase UI Documentation Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-137652528-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/kbase-ui-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/kbase-ui-docs/css/main.css"/><script src="/kbase-ui-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/kbase-ui-docs/"><img class="logo" src="/kbase-ui-docs/img/kbase_logo.png" alt="KBase UI Documentation"/><h2 class="headerTitleWithLogo">KBase UI Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/kbase-ui-docs/docs/getting-started/" target="_self">Docs</a></li><li class=""><a href="/kbase-ui-docs/help" target="_self">Help</a></li><li class=""><a href="/kbase-ui-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">plugins/developing</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="developing-kbase-ui-plugins"></a><a href="#developing-kbase-ui-plugins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Developing kbase-ui Plugins</h1>
+<p>This guide describes a workflow for working on kbase-ui plugins, and deploying plugin and kbase-ui updates.</p>
+<p>Because the creation of a plugin involves a set of one-time tasks, it is described in a separate document <a href="developing-new-plugin.md">Creating a New Plugin</a>.</p>
+<p>[TOC]</p>
+<h2><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h2>
+<p>This guide does not cover setting up kbase-ui for development -- if you have not done that yet please see the following documents:</p>
+<ul>
+<li><a href="/kbase-ui-docs/docs/getting-started/prerequisites">Prerequisites</a></li>
+<li><a href="/kbase-ui-docs/docs/getting-started/quick-start">Quick Start</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="setting-up"></a><a href="#setting-up" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting Up</h2>
+<p>Good, now that you have set up a kbase-ui development environment, it is time to integrate a plugin to work on.</p>
+<h3><a class="anchor" aria-hidden="true" id="fork-the-plugin-repo"></a><a href="#fork-the-plugin-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fork the Plugin Repo</h3>
+<p>If you haven't yet, now is the time to fork the plugin repo from github.</p>
+<p>All kbase plugins have an upstream repo in the kbase github account at <code>https://github.com/kbase/kbase-ui-plugin-THEPLUGIN</code>.</p>
+<p>Where <code>THEPLUGIN</code> is the name of the plugin.</p>
+<blockquote>
+<p>Well, sometimes during initial development, a plugin may reside at your personal repo. This saves the extra pull request step which can slow down iterative development, especially when a plugin is being born. This only works well when you are the sole developer of the plugin.</p>
+</blockquote>
+<p>Note that all plugin repos are prefixed with <code>kbase-ui-plugin-</code>. This is not a hard requirement, in that kbase-ui can use plugins named otherwise. However kbase-ui build tools assume this naming convention, and it is good practice for a few reasons:</p>
+<ul>
+<li>it creates a uniqe name in the <em>github</em> namespace</li>
+<li>it creates a a unique name in the <em>bower</em> namespace (more on that later)</li>
+<li>it makes it easier to manage plugins in your project (they appear together in directory listings)</li>
+</ul>
+<p>When we reference the <em>name</em> of a plugin, we always refer the the string occurring after the <em>kbase-ui-plugin-</em> prefix.</p>
+<p>So, your task is to fork the repo you are interested in:</p>
+<ul>
+<li>create a github account if you do not already have one</li>
+<li>sign in to github if you are not already and ensure you are using the correct account for kbase work</li>
+<li>visit the github page for the plugin
+<ul>
+<li>the root page for all plugins is <a href="https://github.com/kbase">https://github.com/kbase</a></li>
+</ul></li>
+<li>fork the repo into your github account using the fork button</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="clone-the-plugin-repo"></a><a href="#clone-the-plugin-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clone the Plugin Repo</h3>
+<p>We'll clone the plugin repo using the same method used for setting up kbase-ui for development.</p>
+<p>First, open a terminal in the top level <code>project</code> directory you set up (in <a href="/kbase-ui-docs/docs/getting-started/quick-start">Quick Start</a>) to contain the kbase-ui repo.</p>
+<p>Then we'll clone the canonical plugin repo in the kbase account.</p>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> ~/work/project
+$ git <span class="hljs-built_in">clone</span> https://github.com/kbase/kbase-ui-plugin-PLUGINNAME
+</code></pre>
+<p>Then ensure that you can't accidentally merge changes back into the kbase repo:</p>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> kbase-ui-plugin-PLUGINNAME
+$ git remote <span class="hljs-built_in">set</span>-url --push origin nopush
+</code></pre>
+<blockquote>
+<p>You probably don't have push access to the repo, but this is a good practice; it sets the &quot;push&quot; url for the origin repo to a nonsensical url, thus preventing accidental commits to the canonical repo. No-one, even repo owners, should ever commit directly to a canonical repo.</p>
+</blockquote>
+<p>Then add a remote which is your fork of the repo.</p>
+<pre><code class="hljs css language-bash">$ git remote add NICKNAME https://github.com/YOURACCOUNT/kbase-ui-plugin-PLUGINNAME
+</code></pre>
+<p>This sets up a remote named <em>NICKNAME</em> (which can be anything you like) which points to your fork at github account <em>YOURACCOUNT</em> using the https method.</p>
+<h3><a class="anchor" aria-hidden="true" id="using-ssh-to-save-keystrokes"></a><a href="#using-ssh-to-save-keystrokes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using ssh to save keystrokes</h3>
+<p>If you want to avoid the need to enter your password every time you push changes back up to your account, you may want to set up an ssh key:</p>
+<p><a href="">https://help.github.com/articles/connecting-to-github-with-ssh</a>.</p>
+<p>If you have an ssh key for your current machine established for your github account, the clone command would look like</p>
+<pre><code class="hljs">$ git remote add NICKNAME ssh:<span class="hljs-regexp">//gi</span>t@github.com<span class="hljs-regexp">/YOURACCOUNT/</span>kbase-ui-plugin-PLUGINNAME
+</code></pre>
+<p>In either event, you have now established the plugin as a sister directory to kbase-ui. Your development directory should now look like:</p>
+<pre><code class="hljs"><span class="hljs-keyword">project</span>
+   kbase-ui
+   kbase-ui-plugin-PLUGINNAME
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="build-and-run-the-image-with-the-plugin-linked"></a><a href="#build-and-run-the-image-with-the-plugin-linked" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build and run the image with the plugin linked</h3>
+<p>A tool is provided to both run the kbase-ui image (container) and at the same time link the local plugin directly into the image. Once you have done this, changes made to the local plugin will be relfected immediately in kbase-ui (after a browser reload.)</p>
+<p>This works by mounting the plugin source directory to the corresponding location inside of the kbase-ui container. The docker-mounted directory will temporarily replace the directory which was installed when kbase-ui was built.</p>
+<pre><code class="hljs"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/work/project/kbase-ui</span>
+make docker-service-start plugins=<span class="hljs-string">"PLUGINNAME"</span>
+</code></pre>
+<p>You should see a successful startup of the docker container, with several log lines printed into the console, similar to this:</p>
+<pre><code class="hljs">Tests-MBP:kbase-ui erikpearson$ make docker-service-start
+bash tools/docker/create-docker-network.sh kbase-dev
+&gt; Building <span class="hljs-keyword">and</span> running docker image <span class="hljs-keyword">for</span> development
+Creating kbase-ui ... done
+Creating kbase-ui-proxy ... done
+Attaching to kbase-ui, kbase-ui-proxy
+kbase-ui          | Checking config file...
+kbase-ui          | OK. Execing nginx... Press Control-C to exit.
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: using the <span class="hljs-string">"epoll"</span> event method
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: nginx/<span class="hljs-number">1.12</span><span class="hljs-number">.2</span>
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: OS: Linux <span class="hljs-number">4.9</span><span class="hljs-number">.87</span>-linuxkit-aufs
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: getrlimit(RLIMIT_NOFILE): <span class="hljs-number">1048576</span>:<span class="hljs-number">1048576</span>
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: start worker processes
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: start worker process <span class="hljs-number">16</span>
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: start worker process <span class="hljs-number">17</span>
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: start worker process <span class="hljs-number">18</span>
+kbase-ui          | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">12</span>#<span class="hljs-number">12</span>: start worker process <span class="hljs-number">19</span>
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: using the <span class="hljs-string">"epoll"</span> event method
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: nginx/<span class="hljs-number">1.12</span><span class="hljs-number">.2</span>
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: OS: Linux <span class="hljs-number">4.9</span><span class="hljs-number">.87</span>-linuxkit-aufs
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: getrlimit(RLIMIT_NOFILE): <span class="hljs-number">1048576</span>:<span class="hljs-number">1048576</span>
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: start worker processes
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: start worker process <span class="hljs-number">16</span>
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: start worker process <span class="hljs-number">17</span>
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: start worker process <span class="hljs-number">18</span>
+kbase-ui-proxy    | <span class="hljs-number">2018</span>/<span class="hljs-number">07</span>/<span class="hljs-number">13</span> <span class="hljs-number">21</span>:<span class="hljs-number">26</span>:<span class="hljs-number">41</span> [notice] <span class="hljs-number">11</span>#<span class="hljs-number">11</span>: start worker process <span class="hljs-number">19</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="develop"></a><a href="#develop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Develop!</h2>
+<p>You may now make changes to the plugin, and see those changes reflected immediately upon refreshing the browser.</p>
+<p>This is the essential plugin workflow</p>
+<h4><a class="anchor" aria-hidden="true" id="what-is-happening"></a><a href="#what-is-happening" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is happening...</h4>
+<h5><a class="anchor" aria-hidden="true" id="with-mounting-the-plugin-inside-the-container"></a><a href="#with-mounting-the-plugin-inside-the-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>...with mounting the plugin inside the container</h5>
+<p>The <em>plugins</em> option to <em>make docker-service-start</em> provides just enough information for the tool to be able to find the plugin directory and map the source directory into the kbase-ui container.</p>
+<p>Let me explain:</p>
+<p>Remember, if we have set up the project directory in the pattern described above, the plugin directory indicated by PLUGINNAME is located one directory above kbase-ui, and named &quot;kbase-ui-plugin-PLUGINNAME&quot;.</p>
+<p>Inside the plugin the directory structure is uniform. The directory path <code>kbase-ui-plugin-PLUGINNAME/src/plugin</code> is the root of the plugin source code. When kbase-ui is built, this directory is copied directly to <code>kbase-ui/build/build/client/modules/plugins/PLUGINNAME</code>. When the kbase-ui image is built, the build code is copied to <code>/kb/deployment/services/kbase-ui</code>, and now the plugin code lives at <code>/kb/deployment/services/kbase-ui/modules/plugins/PLUGINNAME</code></p>
+<blockquote>
+<p>See <a href="/kbase-ui-docs/docs/development/building">About Building</a> for an explanation of the build process and structure.</p>
+</blockquote>
+<p>The important point is that the <em>plugins</em> option will tell Docker to mount your plugin repo src/plugin directory into the kbase-ui image at the location described above.</p>
+<p>Once this mapping has been done, any changes you make to the plugin are &quot;live&quot; inside the kbase-ui docker container. A simple refresh of the browser will load any changes.</p>
+<h2><a class="anchor" aria-hidden="true" id="next-topics"></a><a href="#next-topics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Next Topics</h2>
+<p>The next few sections will cover the following topics:</p>
+<ul>
+<li>Testing</li>
+<li>Releasing</li>
+<li>Merging into kbase-ui &quot;for reals&quot;</li>
+<li>Deploying into CI</li>
+<li>Additional Topics
+<ul>
+<li>Debugging Tips</li>
+<li>supported kbase-ui dependencies</li>
+<li>What? You need a new dependency?</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="testing"></a><a href="#testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing</h2>
+<p>We don't currently have a formal test harness for automated testing of plugins, so all of your testing will be by hand. Nevertheless, you do have the ability to manually verify that your plugin works against all kbase environments.</p>
+<blockquote>
+<p>Maybe we should rather call this &quot;verification&quot;</p>
+</blockquote>
+<p>There are three basic levels of testing, each more onerous than the previous.</p>
+<ul>
+<li>Dev mode testing - use the kbase-ui dev build, with local plugin changes mounted into the image</li>
+<li>Dev build testing - use the kbase-ui dev build with local plugin changes checked in and released</li>
+<li>Prod build testing - use the kbase-ui prod build with local plugin changes released</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="manual-testing-process"></a><a href="#manual-testing-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manual Testing Process</h3>
+<p>For each environment (dev, ci, next, appdev, prod), do the following:</p>
+<ul>
+<li><p>start the kbase-ui container for that environment</p>
+<ul>
+<li><pre><code class="hljs css language-bash">make run-image env=ENV
+</code></pre></li>
+<li><p>where ENV is each of dev, ci, next, appdev, prod</p></li>
+</ul></li>
+<li><p>start the proxier for the matching environment</p>
+<ul>
+<li><pre><code class="hljs css language-bash">make run-proxier-image env=ENV
+</code></pre></li>
+<li><p>note that this ENV must match the first one</p></li>
+</ul></li>
+<li><p>Perform your tests</p></li>
+</ul>
+<p>These steps are identical for each of the testing modes</p>
+<h3><a class="anchor" aria-hidden="true" id="dev-mode-testing"></a><a href="#dev-mode-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dev Mode Testing</h3>
+<p>This is essentially an extension of the normal edit &amp; reload process, with the twist that you should check all top features of the plugin for regression, and check against all deployment environments.</p>
+<p>You should perform this testing before releasing your plugin changes.</p>
+<h3><a class="anchor" aria-hidden="true" id="dev-build-testing"></a><a href="#dev-build-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dev Build Testing</h3>
+<p>In this test mode, you have check in, merged, and released the plugin changes (because they passed the Dev Mode Testing above). You will have updated kbase-ui with the new plugin version, and rebuilt kbase-ui (as described in Preparing for Release.)</p>
+<ul>
+<li>push your code up to your repo</li>
+<li>issue a PR for the plugin</li>
+<li>either merge the PR yourself, or request a review and merge</li>
+<li>create a semver tag for the kbase plugin repo</li>
+<li>update the kbase-ui build files with the new semver:
+<ul>
+<li>config/app/dev/plugins.yml</li>
+<li>config/app/prod/plugins.yml</li>
+</ul></li>
+</ul>
+<p>You should perform this testing before a kbase-ui Pull Request which integrates your updated plugin.</p>
+<p>If you feel confident in your changes, or they are trivial, you may skip this step and continue to Prod BuildTesting.</p>
+<h3><a class="anchor" aria-hidden="true" id="prod-build-testing"></a><a href="#prod-build-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prod Build Testing</h3>
+<p>Finally, before issuing a PR for integrating your updated plugin into kbase-ui, you need to perform testing using the production build. This should be done sparingly, and usually just as a pre-release task, because the prod build can take several minutes. Fortunately, once the build is finished the same as above.</p>
+<p>In addition to the tasks for Dev Build Testing:</p>
+<ul>
+<li>make the prod build</li>
+<li>make the image using the prod build</li>
+</ul>
+<p>Then perform your tests against each environment as described above.</p>
+<h3><a class="anchor" aria-hidden="true" id="future-testing-plans"></a><a href="#future-testing-plans" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Future Testing Plans</h3>
+<p>First, there is nascent support for selenium-based integration testing in kbase-ui. Thus you can perform ad-hoc automated integration testing if you set up the tests by hand. We do not have this testing integrated into Travis or Jenkins, nor a method for integration of plugin tests into the kbase-ui testing apparatus.</p>
+<p>See <a href="testing.md">Testing</a> for more.</p>
+<h2><a class="anchor" aria-hidden="true" id="deploying-updated-plugin"></a><a href="#deploying-updated-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploying updated plugin</h2>
+<p>When you have completed a round of changes to the plugin and it is ready for review on CI, you will need to update the plugin repo and issue the changes into the CI environment. Typically this will involve two sets of updates -- first a PR for your plugin changes, which results in a new version; secondly a PR for the new plugin version in kbase-ui, which will result in a new release in CI.</p>
+<ul>
+<li>commit all changes</li>
+<li>push changes to your fork</li>
+<li>issue a PR for the kbase plugin</li>
+<li>after the PR is accepted, a new version will have been issued</li>
+<li>update the plugin version in your kbase-ui plugins.yml config for both dev and ci (and prod if this is ready for release)</li>
+<li>rebuild kbase-ui and verify that the build works, and that the changes are present</li>
+<li>commit and push your kbase-ui changes (which will just be configuration changes to bump up the version for your plugin) to your kbase-ui fork</li>
+<li>issue a PR for this change</li>
+<li>the PR will be accepted and kbase-ui will be redeployed into CI</li>
+</ul>
+<blockquote>
+<p>If the PR is in the early stages, it may still be in your personal github account; if this is so clearly you can skip the PR process for the plugin, and issue the new release version yourself. Don't worry —  when you transfer the repo to the kbase account, all commits and release tags are retained.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="next-steps"></a><a href="#next-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Next Steps</h2>
+<ul>
+<li><a href="creating-a-new-plugin.md">Creating a New Plugin</a></li>
+</ul>
+<hr>
+<p><a href="../index.md">Index</a> - <a href="../README.md">README</a> - <a href="../../release-notes/index.md">Release Notes</a> - <a href="http://kbase.us">KBase</a></p>
+<hr>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#setting-up">Setting Up</a><ul class="toc-headings"><li><a href="#fork-the-plugin-repo">Fork the Plugin Repo</a></li><li><a href="#clone-the-plugin-repo">Clone the Plugin Repo</a></li><li><a href="#using-ssh-to-save-keystrokes">Using ssh to save keystrokes</a></li><li><a href="#build-and-run-the-image-with-the-plugin-linked">Build and run the image with the plugin linked</a></li></ul></li><li><a href="#develop">Develop!</a></li><li><a href="#next-topics">Next Topics</a></li><li><a href="#testing">Testing</a><ul class="toc-headings"><li><a href="#manual-testing-process">Manual Testing Process</a></li><li><a href="#dev-mode-testing">Dev Mode Testing</a></li><li><a href="#dev-build-testing">Dev Build Testing</a></li><li><a href="#prod-build-testing">Prod Build Testing</a></li><li><a href="#future-testing-plans">Future Testing Plans</a></li></ul></li><li><a href="#deploying-updated-plugin">Deploying updated plugin</a></li><li><a href="#next-steps">Next Steps</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/kbase-ui-docs/" class="nav-home"><img src="/kbase-ui-docs/img/favicon.ico" alt="KBase UI Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/kbase-ui-docs/docs/en/getting-started/index.html">Getting Started</a></div><div><h5>Community</h5><a href="/kbase-ui-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/kbase-ui-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/kbase/kbase-ui/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 KBase </section></footer></div></body></html>

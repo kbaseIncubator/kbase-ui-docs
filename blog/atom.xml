@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog</id>
+    <title>KBase UI Documentation Blog</title>
+    <updated>2019-06-12T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest KBase UI Documentation news and events.</subtitle>
+    <logo>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/kbase_logo.png</logo>
+    <rights>Copyright © 2019 KBase </rights>
+    <entry>
+        <title type="html"><![CDATA[First Post]]></title>
+        <id>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/2019/06/12/first-post.html</id>
+        <link href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/2019/06/12/first-post.html">
+        </link>
+        <updated>2019-06-12T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>This is my first blog post...</p>
+]]></summary>
+        <author>
+            <name>Erik Pearson</name>
+            <uri>http://narrative.kbase.us#people/eapearson</uri>
+        </author>
+    </entry>
+</feed>

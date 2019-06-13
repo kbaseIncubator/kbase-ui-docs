@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>development/creating-a-new-plugin · KBase UI Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;creating-a-new-plugin&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#creating-a-new-plugin&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Creating a New Plugin&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="development/creating-a-new-plugin · KBase UI Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;creating-a-new-plugin&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#creating-a-new-plugin&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Creating a New Plugin&lt;/h1&gt;
+"/><meta property="og:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/kbase-ui-docs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/atom.xml" title="KBase UI Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/feed.xml" title="KBase UI Documentation Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-137652528-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/kbase-ui-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/kbase-ui-docs/css/main.css"/><script src="/kbase-ui-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/kbase-ui-docs/"><img class="logo" src="/kbase-ui-docs/img/kbase_logo.png" alt="KBase UI Documentation"/><h2 class="headerTitleWithLogo">KBase UI Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/kbase-ui-docs/docs/getting-started/" target="_self">Docs</a></li><li class=""><a href="/kbase-ui-docs/help" target="_self">Help</a></li><li class=""><a href="/kbase-ui-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">development/creating-a-new-plugin</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="creating-a-new-plugin"></a><a href="#creating-a-new-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a New Plugin</h1>
+<p>This document describes the process for creating a new kbase-ui plugin and integrating it into the kbase-ui build. It is best if you have already absorbed <a href="developing-a-plugin.md">Developing a Plugin</a>.</p>
+<p>[TOC]</p>
+<h2><a class="anchor" aria-hidden="true" id="prerequisities"></a><a href="#prerequisities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisities</h2>
+<ul>
+<li><a href="prerequisites.md">Prerequisites</a></li>
+<li><a href="/kbase-ui-docs/docs/development/getting-started">Getting Started</a></li>
+<li><a href="developing-a-plugin.md">Developing a Plugin</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="setup"></a><a href="#setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup</h2>
+<p>After setting up a new project directory as described in the <a href="/kbase-ui-docs/docs/development/getting-started">Getting Started</a> guide, you should put yourself in a terminal opened inside the project directory, <em>~/work/project</em>.</p>
+<h2><a class="anchor" aria-hidden="true" id="clone-sample-plugin-repo"></a><a href="#clone-sample-plugin-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clone Sample Plugin Repo</h2>
+<p>First we need to clone the sample plugin repo as a copy.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> ~/work/project
+git <span class="hljs-built_in">clone</span> --depth=1 --branch=master https://github.com/eapearson/kbase-ui-plugin-simple-sample kbase-ui-plugin-MYPLUGIN
+</code></pre>
+<p>This will clone the sample plugin into a directory named after the new plugin name MYPLUGIN. This will not be functional git repo, since it was cloned with a depth of 1.</p>
+<blockquote>
+<p>Note: We should move the simple-sample plugin into the kbase account</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="change-the-name-of-the-plugin"></a><a href="#change-the-name-of-the-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change the name of the plugin</h3>
+<p>The sample plugin name is <em>simple-sample</em>. This name is used in many places to namespace this plugin. In your IDE or tool of choice you can simply perform a global search-and-replace from &quot;simple-sample&quot; to &quot;MYPLUGIN&quot; (where MYPLUGIN) is the name of your new plugin.)</p>
+<p>Your plugin name should be short, but fully descriptive of the purpose of the plugin. In this document when we use <em>MYPLUGIN</em> we mean the name you have chosen for your plugin.</p>
+<p>At the time of writing the global search-and-replace will make the following changes, with additional changes you may to to make noted</p>
+<ul>
+<li><p>bower.json</p>
+<ul>
+<li>changes the name property from &quot;kbase-ui-plugin-simple-sample&quot; to &quot;kbase-ui-plugin-MYPLUGIN&quot;</li>
+<li>changes the property repository.url to point to the github repo</li>
+</ul></li>
+<li><p>src/plugin/config.yml</p>
+<ul>
+<li>changes the package.name property from &quot;simple-sample&quot; to &quot;MYPLUGIN&quot;</li>
+<li>YOU: also change the author and description if appropriate</li>
+<li>changes the install.widgets[0].id from simple-sample_panel to MYPLUGIN_panel</li>
+<li>changes the intall.routes[0].path from [simple-sample] to [MYPLUGIN]</li>
+<li>changes the install.routes[0].widget from simple-sample_panel to MYPLUGIN_panel</li>
+<li>changes the install.menu.name property form simple-sample to MYPLUGIN</li>
+<li>changes the install.menu.definition.path from [simple-sample] to [MYPLUGIN]</li>
+</ul></li>
+<li><p>src/plugin/resources/css</p>
+<ul>
+<li>changes the class name plugin_simple-sample_panel to plugin_MYPLUGIN_panel</li>
+</ul></li>
+<li><p>src/plugin/modules</p>
+<ul>
+<li>changes the class name list 'plugin_simple-sample_panel container-fluid' to 'plugin_MYPLUGIN_panel container-fluid'</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>NOTE: You will discover that there are a few odds and ends that need to be changed as well, such as the menu label, the page title, and of course the sample content. We'll cover that later.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="add-plugin-to-kbase-ui-config"></a><a href="#add-plugin-to-kbase-ui-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add plugin to kbase-ui config</h2>
+<p>In order for a plugin to be made available and integrated into kbase-ui, several files in kbase-ui need to be modified.</p>
+<ul>
+<li>build configuration file - specify the plugin id and version</li>
+<li>build services configuration file - specify menu items which should appear</li>
+<li>deployment environment file - a menu item specified above may be disabled in one or more deployments</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="pluginsyml"></a><a href="#pluginsyml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>plugins.yml</h3>
+<p>The primary entry point for a plugin into <em>kbase-ui</em> is the <code>plugins.yml</code> config file. This file lists all of the plugins which will be loaded into kbase-ui.</p>
+<p>Since there are two build types for kbase-ui, the local developer build and the main production build, there are two plugin configuration files. This allows us to iterate quickly over new development, have the work shared via github, and the have the work reviewable without introducing the code into a shared environment just yet.</p>
+<p>However, in practice we introduce new plugins destined for production into both the dev and prod build configurations. We have a second barrier for code to enter production, the develop / master branch practice, in which develop is used for local develop and CI, and master for next, appdev, and production.</p>
+<p>On the other hand, we do not like to create much distance from the develop branch and master, in terms of deployable features. Thus, if we have new plugins introduced into the prod build in the develop branch, and they are in an unstable state, we may introduce friction  and uncertaintly in efforts to merge develop into master and initiate and deployment.</p>
+<p>Well, back to the task at hand, in plugins.yml you will need to add a new entry to the bottom of the plugins section.</p>
+<p>Edit the file <em>~/work/project/kbase-ui/config/app/dev/plugins.yml</em>.</p>
+<p>At the bottom of the file add this (replacing MYPLUGIN with the plugin name you have chosen)</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-bullet">    -</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">MYPLUGIN</span>
+<span class="hljs-attr">        globalName:</span> <span class="hljs-string">kbase-ui-plugin-MYPLUGIN</span>
+<span class="hljs-attr">        version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">        cwd:</span> <span class="hljs-string">src/plugin</span>
+<span class="hljs-attr">        source:</span>
+<span class="hljs-attr">            directory:</span> <span class="hljs-string">{}</span>
+</code></pre>
+<p>This entry uses the &quot;directory&quot; source. With this setting (you will notice that all others in the config file use &quot;bower&quot;), the kbase-ui build tool will fetch the plugin code from the local plugin directory. With the &quot;bower&quot; setting, which we will set later, the plugin code would be fetched from github via the bower package manager.</p>
+<h3><a class="anchor" aria-hidden="true" id="servicesyml"></a><a href="#servicesyml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>services.yml</h3>
+<p>We'll add a menu item to the ui as well.</p>
+<p>Menu items appearing in the hamburger and sidebar menus are defined in plugins, but their appearance in a menu and order are defined in the ui itself.</p>
+<p>The menu configuration is located within the <em>services.yml</em> file. This file contains the default configuration for all kbase-ui services. A kbase-ui service is an internal process which is responsible for some aspect of the user interface. In this case the <em>menu</em> service is responsible for providing the list of menus. (An internal plugin is responsible for displaying them.)</p>
+<p>Edit the file <em>~/work/project/kbase-ui/config/app/dev/services.yml</em></p>
+<p>Below is the current developer menu configuration:</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">menu:</span>
+<span class="hljs-attr">      menus:</span>
+<span class="hljs-attr">        hamburger:</span>
+<span class="hljs-attr">          sections:</span> 
+<span class="hljs-attr">            main:</span>
+<span class="hljs-attr">              items:</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">narrative</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">jgi-search</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">            developer:</span>
+<span class="hljs-attr">              items:</span> 
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">dagre-example</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">simple-search</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">simple-sample</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">narrative-finder</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">staging-browser</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">example-gopherjs</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">reske-admin</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">reske-object-search</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">tester</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">test_dynamic_table</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">paveldemo</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">databrowser</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">typebrowser</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">shockbrowser</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">            help:</span>
+<span class="hljs-attr">              items:</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">about</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">false</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">about-services</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">contact-kbase</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">false</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">help</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">        sidebar:</span>
+<span class="hljs-attr">          sections:</span>
+<span class="hljs-attr">            main:</span>
+<span class="hljs-attr">              items:</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">dashboard</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">appcatalog</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">false</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">search</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">jobbrowser</span>
+                  <span class="hljs-comment"># The label can ovveride the label from the plugin here</span>
+<span class="hljs-attr">                  label:</span> <span class="hljs-string">Jobs</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">account</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">                -</span>
+<span class="hljs-attr">                  id:</span> <span class="hljs-string">feeds</span>
+<span class="hljs-attr">                  auth:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">                  allow:</span> <span class="hljs-string">[alpha]</span>
+</code></pre>
+<p>You can see that menu items are defined for the hamburger and sidebar, and that each is divided into sections.</p>
+<p>The hamburger menu has three sections — main, developer, and help. Only the main and help sections currently appear in any production site, while developer appears in CI and local development. The main section contains the primary hamburger menu actions. When the sidebar menu was introduced, years after the hamburger menu, the hamburger menu was more or less relegated to secondary functions. The help menu is generally for help and reference. The developer menu is used for tools which are useful for ui developers (especially in the local dev build), and for internal users (who might be using CI.)</p>
+<p>The sidebar menu contains a single <em>main</em> section, and is the primary navigation to core kbase-ui features. Each of these features is provided by a plugin.</p>
+<p>So, back to adding the menu item. The menu item fieldsa are:</p>
+<ul>
+<li><code>id</code> - the internal menu id as provided by the plugin</li>
+<li><code>auth</code> - true if the menu item should only appear with the ui is in a logged-in (authenticated/authorized) state; most menu items require this</li>
+<li><code>label</code> - optional, may be used to override the menu label defined in the plugin; not often used, usually to relabel the menu until the plugin can be updated</li>
+<li><code>allow</code> - optional, a list of enablements for which this menu item may be displayed; if missing, implies that the menu item always appears (honoring the auth flag); if provided the menu item will only appear when the ui contains the specified enablements. Useful for having menu items only appear if the ui is enabled for alpha, beta, or experimental features.</li>
+</ul>
+<p>Since each menu item generally corresponds to the entry point for a plugin, the menu id is usually simply the plugin id.</p>
+<p>The sample plugin we are working with was set up that way, and the search and replace you (hopefully) performed earlier would have transformed this to MYPLUGIN.</p>
+<p>So...</p>
+<p>Add the following entry to the developer menu (where new plugins typically first appear):</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-bullet">-</span>
+<span class="hljs-attr">  id:</span> <span class="hljs-string">MYPLUGIN</span>
+<span class="hljs-attr">  auth:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p>This is going into the local dev build, so we don't have to put any conditions on the menu item appearing.</p>
+<h2><a class="anchor" aria-hidden="true" id="test-the-new-plugin"></a><a href="#test-the-new-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test the new plugin</h2>
+<p>We'll take a short detour here to ensure that the plugin works, before completing the new plugin setup.</p>
+<p>In the kbase-ui directory, build and run the image with the new configuration.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> ~/work/project/kbase-ui
+make build config=dev
+make image build=build
+make run-image env=dev
+</code></pre>
+<p>Now point your favorite web browser to <a href="https://ci.kbase.us">https://ci.kbase.us</a>.</p>
+<p>You should see the new menu item in the hamburger menu. Selecting the new menu item should show the default sample plugin content.</p>
+<p>Although it is tempting to start working on the plugin, let's first finish the plugin configuration.</p>
+<h2><a class="anchor" aria-hidden="true" id="create-github-repo"></a><a href="#create-github-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create Github Repo</h2>
+<p>You'll start by creating a github repo under your account. After the plugin is established, or at any time you wish, this repo should be transferred to the <em>kbase</em> github account.</p>
+<ul>
+<li>log into github.com</li>
+<li>select &quot;New repository&quot; from the &quot;+&quot; menu</li>
+<li>use the name &quot;kbase-ui-plugin-MYPLUGIN&quot; for the repo (where, as usual MYPLUGIN is the name you have chosen)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="initialize-and-push-the-plugin"></a><a href="#initialize-and-push-the-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialize and push the plugin</h2>
+<p>Back in your plugin's folder, convert it into a git repo and push it up to the new github repo you just created.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> ~/work/project/kbase-ui-plugin-MYPLUGIN
+git init
+git remote add origin https://github.com/YOURACCOUNT/kbase-ui-plugin-MYPLUGIN
+git add .
+git commit -m <span class="hljs-string">"Initial commit for new plugin MYPLUGIN"</span>
+git push -u origin master
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="make-the-initial-release"></a><a href="#make-the-initial-release" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make the initial release</h2>
+<p>All external plugins are pulled into a kbase build by their version. The version is requested via bower, which in turn recognizes versions set up with the correct semver format as git tags in github.</p>
+<p>Goto your github page for the plugin:</p>
+<ul>
+<li>Take your browser to <a href="https://github.com/YOURACCOUNT/kbase-ui-plugin-MYPLUGIN">https://github.com/YOURACCOUNT/kbase-ui-plugin-MYPLUGIN</a></li>
+<li>Select the &quot;release&quot; tab</li>
+<li>Click the &quot;Draft a new release&quot; button</li>
+<li>For &quot;Tag version&quot; enter &quot;v0.1.0&quot;</li>
+<li>For &quot;Release title&quot; enter &quot;0.1.0&quot;</li>
+<li>For &quot;Describe this release&quot; you may describe the initial state of the plugin, or simply leave it blank.</li>
+<li>For &quot;This is a pre-relase&quot;, check the box</li>
+</ul>
+<blockquote>
+<p>Note that all releases before 1.0.0 are assumed to be in development, so I'm not sure that the pre-release status is necessary; it only appears in the github web ui, afaik.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="register-in-bower"></a><a href="#register-in-bower" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Register in Bower</h2>
+<p>In order for the kbase-ui build tool to be able to use bower to fetch the plugin, you need to first register it in the bower registry.</p>
+<p>Back in your terminal:</p>
+<pre><code class="hljs css language-bash">bower register kbase-ui-plugin-MYPLUGIN https://github.com/YOURACCOUNT/kbase-ui-plugin-MYPLUGIN
+</code></pre>
+<blockquote>
+<p>Caveats: Bower is deprecated - we simply haven't had time yet to move to another workflow.</p>
+</blockquote>
+<blockquote>
+<p>At a later time, after the repo is transfered to the kbase account, the plugin will need to be un-registered from your account and re-registered under kbase.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="change-the-plugin-from-directory-to-bower"></a><a href="#change-the-plugin-from-directory-to-bower" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change the plugin from &quot;directory&quot; to &quot;bower&quot;</h2>
+<p>As mentioned above, we initially set the plugin configuration to be installed from a directory. We will now switch that to bower. Make the plugin entry we added bofore look like the one below (we are just changing <code>source.directory: {}</code> to <code>source.bower: {}</code>)</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-bullet">    -</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">MYPLUGIN</span>
+<span class="hljs-attr">        globalName:</span> <span class="hljs-string">kbase-ui-plugin-MYPLUGIN</span>
+<span class="hljs-attr">        version:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">        cwd:</span> <span class="hljs-string">src/plugin</span>
+<span class="hljs-attr">        source:</span>
+<span class="hljs-attr">            bower:</span> <span class="hljs-string">{}</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="build-and-confirm"></a><a href="#build-and-confirm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build and Confirm</h2>
+<p>Now you are ready to build kbase-ui again and confirm that the plugin has been integrated.</p>
+<h3><a class="anchor" aria-hidden="true" id="stop-the-container"></a><a href="#stop-the-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stop the container</h3>
+<p>First, you will need to stop the currently running container that you started earlier. Remember, that is simply <code>Ctrl</code> + <code>C</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="build-and-run-again"></a><a href="#build-and-run-again" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build and run again</h3>
+<p>Now lets build the ui and run it again to confirm that the changes worked.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> ~/work/project/kbase-ui
+make build config=dev
+make image build=build
+make run-image env=dev
+</code></pre>
+<p>Now pull up your favorite browser to <a href="https://ci.kbase.us">https://ci.kbase.us</a> to confirm that the plugin loaded correctly.</p>
+<p>If you added a new menu item, confirm that it is in the menu, and select it.</p>
+<p>If the plugin is not correctly registered in bower, or misconfigured in plugins.yml, or the services.yml is incorrect, either the build or the initial load of the kbase-ui web app will fail.</p>
+<h2><a class="anchor" aria-hidden="true" id="make-a-few-changes"></a><a href="#make-a-few-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make a few changes</h2>
+<p>As you will have noticed, this new plugin still looks like the sample plugin, because we haven't changed any of the sample content yet. Let's do that now.</p>
+<h3><a class="anchor" aria-hidden="true" id="developer-workflow"></a><a href="#developer-workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Developer Workflow</h3>
+<p>We have succeeded in having the ui built from the plugin by pulling a specific version down from it's github repo. This is critical for reproducible builds. However, during development time it we want to have our local changes reflected in the ui.</p>
+<p>To accomplish this we just need to run the image with options to map the plugin folder into the container (this is described in more detail in the <a href="developing-a-plugin.md">developing a plugin</a> document.)</p>
+<p>To accomplish this:</p>
+<ul>
+<li>stop the container</li>
+<li>start the container with the following commands:</li>
+</ul>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> ~/work/project/kbase-ui
+make run-image env=dev plugins=MYPLUGIN
+</code></pre>
+<p>This will run the kbase-ui image while mounting the plugin directory inside, overriding the plugin directory that was included in the build.</p>
+<p>If you refresh browser, your plugin should still display.</p>
+<h3><a class="anchor" aria-hidden="true" id="menu-item"></a><a href="#menu-item" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Menu Item</h3>
+<p>First lets take control of the menu item's label.</p>
+<p>Edit the file <em>~work/project/kbase-ui-plugin-MYPLUGIN/src/plugin/config.yml</em>.</p>
+<p>At the bottom of the file you'll see the <em>menu:</em> section. The <em>label:</em> property controls the display label for the menu item. Change it to whatever you like.</p>
+<p>Now reload the browser, then click on the hamburger menu. You should see the change you just made.</p>
+<p>Feel free to change the icon as well. The icon value is the suffix part of a <a href="http://fontawesome.io/icons/">Font Awesome</a> icon class. The sample icon is a bicycle, so Font Awesome icon class is fa-bicycle.</p>
+<h3><a class="anchor" aria-hidden="true" id="page-title"></a><a href="#page-title" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Page Title</h3>
+<p>The page title is set via a message sent to the ui. The page title is typically set in the widget associated with the current path. These widgets are referred to as &quot;panel widgets&quot; since they typically control the entire content panel of the ui.</p>
+<p>You can find it in <em>~work/project/kbase-ui-plugin-MYPLUGIN/src/plugin/modules/panel.js</em>.</p>
+<p>The line looks like:</p>
+<pre><code class="hljs css language-javascript">runtime.send(<span class="hljs-string">'ui'</span>, <span class="hljs-string">'setTitle'</span>, <span class="hljs-string">'Simple Sample Plugin Title'</span>);
+</code></pre>
+<p>Simply change the text of the string <em>'Simple Sample Plugin Title'</em> to whatever you like. Upon reload this value will be reflected in the title area of the web app, and in the browser window title.</p>
+<h3><a class="anchor" aria-hidden="true" id="panel-content"></a><a href="#panel-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Panel Content</h3>
+<p>The panel widget's content is also set in the <em>panel.js</em> file. In the sample the content is created using the <em>kb_lib/html</em> module's <em>tag</em> function. The tag function allows for creation of html via a functional style. Towards the top of the module several tags are defined (div, p, etc.). When applied, these functions generate the corresponding html.</p>
+<p>In the sample, a &quot;layout&quot; function is used to separate the content building from the point at which it is inserted into the DOM. This is not necessary, but it is generally good practice to keep invoke a simple point of entry to construct the panels layout, outside of the <em>attach</em> or <em>start</em> lifecycle method in which the layout DOM is necessarily updated.</p>
+<p>Please feel free at this point to modify the content and reload the browser to see your changes.</p>
+<h2><a class="anchor" aria-hidden="true" id="next-steps"></a><a href="#next-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Next Steps</h2>
+<ul>
+<li>A separate document describes the ongoing process of <a href="developing-a-plugin.md">developing a plugin</a> in more detail.</li>
+</ul>
+<hr>
+<p><a href="../index.md">Index</a> - <a href="../README.md">README</a> - <a href="../../release-notes/index.md">Release Notes</a> - <a href="http://kbase.us">KBase</a></p>
+<hr>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prerequisities">Prerequisities</a></li><li><a href="#setup">Setup</a></li><li><a href="#clone-sample-plugin-repo">Clone Sample Plugin Repo</a><ul class="toc-headings"><li><a href="#change-the-name-of-the-plugin">Change the name of the plugin</a></li></ul></li><li><a href="#add-plugin-to-kbase-ui-config">Add plugin to kbase-ui config</a><ul class="toc-headings"><li><a href="#pluginsyml">plugins.yml</a></li><li><a href="#servicesyml">services.yml</a></li></ul></li><li><a href="#test-the-new-plugin">Test the new plugin</a></li><li><a href="#create-github-repo">Create Github Repo</a></li><li><a href="#initialize-and-push-the-plugin">Initialize and push the plugin</a></li><li><a href="#make-the-initial-release">Make the initial release</a></li><li><a href="#register-in-bower">Register in Bower</a></li><li><a href="#change-the-plugin-from-directory-to-bower">Change the plugin from &quot;directory&quot; to &quot;bower&quot;</a></li><li><a href="#build-and-confirm">Build and Confirm</a><ul class="toc-headings"><li><a href="#stop-the-container">Stop the container</a></li><li><a href="#build-and-run-again">Build and run again</a></li></ul></li><li><a href="#make-a-few-changes">Make a few changes</a><ul class="toc-headings"><li><a href="#developer-workflow">Developer Workflow</a></li><li><a href="#menu-item">Menu Item</a></li><li><a href="#page-title">Page Title</a></li><li><a href="#panel-content">Panel Content</a></li></ul></li><li><a href="#next-steps">Next Steps</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/kbase-ui-docs/" class="nav-home"><img src="/kbase-ui-docs/img/favicon.ico" alt="KBase UI Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/kbase-ui-docs/docs/en/getting-started/index.html">Getting Started</a></div><div><h5>Community</h5><a href="/kbase-ui-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/kbase-ui-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/kbase/kbase-ui/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 KBase </section></footer></div></body></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>devops/deployment · KBase UI Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;deployment&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#deployment&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deployment&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="devops/deployment · KBase UI Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;deployment&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#deployment&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deployment&lt;/h1&gt;
+"/><meta property="og:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/kbase-ui-docs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/atom.xml" title="KBase UI Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/feed.xml" title="KBase UI Documentation Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-137652528-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/kbase-ui-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/kbase-ui-docs/css/main.css"/><script src="/kbase-ui-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/kbase-ui-docs/"><img class="logo" src="/kbase-ui-docs/img/kbase_logo.png" alt="KBase UI Documentation"/><h2 class="headerTitleWithLogo">KBase UI Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/kbase-ui-docs/docs/getting-started/" target="_self">Docs</a></li><li class=""><a href="/kbase-ui-docs/help" target="_self">Help</a></li><li class=""><a href="/kbase-ui-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">devops/deployment</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="deployment"></a><a href="#deployment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deployment</h1>
+<p>This document describes the process for deploying a version of kbase-ui.</p>
+<ul>
+<li>ensure release is ready</li>
+<li>tag release</li>
+<li>fetch release</li>
+<li>build it</li>
+<li>build image</li>
+<li>test image</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="ready-the-release"></a><a href="#ready-the-release" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ready the Release</h2>
+<p>A release is ready when the following conditions are met:</p>
+<ul>
+<li>release notes complete</li>
+<li>release config set</li>
+<li>canonical repo up-to-date with these changes in develop branch</li>
+<li>merge develop into master</li>
+<li>test the release from master locally
+<ul>
+<li>tag locally</li>
+<li>build locally</li>
+<li>build image locally</li>
+<li>run locally in each environment</li>
+</ul></li>
+<li>tag master</li>
+<li>build code</li>
+<li>build image</li>
+<li>push to docker</li>
+<li>??</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="release-notes"></a><a href="#release-notes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Release Notes</h3>
+<p>Release notes are located in the <code>release-notes</code> directory. A release notes is created for the next presumptive release, before the release is actually created. The release notes document is named <code>RELEASE_NOTES_#.#.#.md</code> where <code>#.#.#</code> is the version of the release. When a release notes document is created, it is also added to the <code>index.md</code> file in the same directory.</p>
+<blockquote>
+<p>Note: The release notes file is validated during the deployment process; the current release version number must match a release notes file.</p>
+</blockquote>
+<p>The release notes document should begin with a summary of the changes, a section describing the nature of any major changes, and a section itemizing the changes, broken into the following sections: New, Unreleased, Improvements, Fixes</p>
+<p>Each item should, if possible, note the JIRA ticket id in the markdown link format <a href="url">ID</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="release-config"></a><a href="#release-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Release Config</h3>
+<p>A single config file defines the current release. This serves to tie the codebase to the current git tag. This file is located in config/release.yml. As part of the release process the property release.version must be set to the presumptive semver tag.</p>
+<h3><a class="anchor" aria-hidden="true" id="update-canonical-repo"></a><a href="#update-canonical-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update Canonical Repo</h3>
+<p>The canonical kbase-ui repo, <a href="https://github.com/kbase/kbase-ui">https://github.com/kbase/kbase-ui</a>, must be updated with these changes.</p>
+<blockquote>
+<p>Note: We do not tag the release yet!</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="merge-to-master"></a><a href="#merge-to-master" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Merge to Master</h3>
+<p>At present we still use the &quot;develop/master&quot; dual branch model, so we always merge the develop branch to master before testing the release and ultimately tagging it with the version.</p>
+<blockquote>
+<p>Note: With the advent of tagged releases, this is no longer necessary because we can always create a hotfix branch from a tag if necessary in order to deal with out-of-band updates to production.</p>
+</blockquote>
+<p>To do this, you should first attempt a pull request through the github ui. To do this,</p>
+<ul>
+<li>Navigate to <a href="https://github.com/kbase/kbase-ui">https://github.com/kbase/kbase-ui</a></li>
+<li>Click the &quot;New Pull Request&quot; button</li>
+<li>Select as base &quot;master&quot;, as compare: &quot;develop&quot;.</li>
+<li>If there are no conflicts reported, create a title &quot;Develop -&gt; Master&quot; and click &quot;Create Pull Request&quot;</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="conflicts"></a><a href="#conflicts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conflicts</h4>
+<p>If there are conflicts, it is best to perform the merge locally, resolve the issues, test the ui, and issue a pull request for the merge.</p>
+<p>Conflicts may happen if much time has elapsed between releases and there have been hotfixes to the release which were not merged back into the develop branch.</p>
+<p>It may be easiest to attempt a merge locally, identify the conflicts, and commit changes to the develop to prevent the conflicts, if possible.</p>
+<p>First get it and generate the conflicts:</p>
+<pre><code class="hljs css language-bash">mkdir <span class="hljs-built_in">test</span>-release
+<span class="hljs-built_in">cd</span> <span class="hljs-built_in">test</span>-release
+git <span class="hljs-built_in">clone</span> -b master https://github.com/kbase/kbase-ui
+<span class="hljs-built_in">cd</span> kbase-ui
+git merge origin/develop origin/master
+</code></pre>
+<p>Resolve the conflicts with your favorite tool. E.g.:</p>
+<pre><code class="hljs css language-bash">code .
+</code></pre>
+<p>Test for prod:</p>
+<pre><code class="hljs css language-bash">make dev-start env=prod build=prod build-image=t
+</code></pre>
+<p>This will build the prod image, and launch it in a container.</p>
+<h3><a class="anchor" aria-hidden="true" id="test-the-presumptive-release"></a><a href="#test-the-presumptive-release" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test the Presumptive Release</h3>
+<p>Once the develop branch has been merged into the master branch, or even from the pull request, you should test the release.</p>
+<pre><code class="hljs css language-bash">mkdir <span class="hljs-built_in">test</span>-release
+<span class="hljs-built_in">cd</span> <span class="hljs-built_in">test</span>-release
+git <span class="hljs-built_in">clone</span> https://github.com/kbase/kbase-ui
+<span class="hljs-built_in">cd</span> kbase-ui
+git fetch origin pull/PULL<span class="hljs-comment">#/head:test-PULL#</span>
+git checkout <span class="hljs-built_in">test</span>-PULL<span class="hljs-comment">#</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="testing-a-tag-locally"></a><a href="#testing-a-tag-locally" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing a tag locally</h2>
+<p>This is necessary for local next/appdev/prod testing since the build will fail if there is no tag on the current commit.</p>
+<pre><code class="hljs">git <span class="hljs-keyword">tag</span> <span class="hljs-title">-a</span> v1.<span class="hljs-number">5.0</span> -m <span class="hljs-string">"1.5.0"</span>
+</code></pre>
+<p>after additional commits you'll need to delete the tag and the add it again</p>
+<pre><code class="hljs">git <span class="hljs-keyword">tag</span> <span class="hljs-title">-d</span> v1.<span class="hljs-number">5.0</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="building-image"></a><a href="#building-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building image</h2>
+<h3><a class="anchor" aria-hidden="true" id="tag-the-repo"></a><a href="#tag-the-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tag the repo</h3>
+<p>Before pulling down the image for building, it should have been tagged. In fact, the clone you are building from should have been pulled down by that tag.</p>
+<p>The tag should be checked into the canonical repo, and the local clone based on that tag.</p>
+<p>For local testing of the build, you can tag locally to simulate this.</p>
+<p>E.g.</p>
+<p>git tag v1.5.0 -m &quot;1.5.0&quot;</p>
+<p>To remove the tag</p>
+<p>git tag --delete v1.5.0</p>
+<h3><a class="anchor" aria-hidden="true" id="build-kbase-ui"></a><a href="#build-kbase-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build kbase-ui</h3>
+<p>The makefile target &quot;build&quot; will build the kbase-ui files. The make target &quot;build-ci&quot; will also
+build a minified version of kbase-ui suitable for deployment.</p>
+<h3><a class="anchor" aria-hidden="true" id="build-the-image"></a><a href="#build-the-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>build the image</h3>
+<p>The makefile target &quot;docker_image&quot; is a target shared with many KBase repos that build
+docker deployment images. This makefile target requires that the &quot;build-ci&quot; makefile target has been run in order to generate the files that are to be published in the docker_image. Note that the &quot;ci&quot; in &quot;build-ci&quot; is construed to mean build for continuous integration <em>in general</em> ratherthan build for the CI environment <em>specifically</em>.</p>
+<p>The build process builds an image named kbase/kbase-ui:$TAG where $TAG is the current branch that is checked out. If the branch is master, $TAG substitutes &quot;latest&quot; for master.</p>
+<p>The Travis-CI environment performs builds of the master and develop branches, and pushes the new builds into dockerhub. It should not be necessary to modify docker images for different environments, aside from passing in difference values for the environment variables.</p>
+<p>It should also not be necessary to retag a develop image as latest in order to promote it for release. The image tagged with latest should automatically track the master branch of the repo.</p>
+<p>The docker image is built to be suitable for development mode (serves up JS files un-minified) as well as in production ( serves up JS files minified as well as a minified archive of all the libraries). The settings for running in CI, AppDev, Next and Prod KBase environments are handled via templates that are populated at runtime for each particular environment. The template files can be found in this directory
+under the repository root: deployment/ci/docker/context/contents/conf</p>
+<p>The templates are build for use with the <a href="https://github.com/kbase/dockerize">docker tool</a> and follow the Golang <a href="https://golang.org/pkg/text/template/">text/template</a> templating rules. At runtime the dockerize program is given environment variables as well as the templates that need to be rendered, and these determine the nginx configuration as well as the details of the content to be served. The dockerfile in deployment/ci/docker/context/Dockerfile shows the parameters passed to dockerize to
+configure the container.</p>
+<p>Examples of environment variables for each different deployment environment ( CI, AppDev, Next, Prod ) can be found in deployment/conf/*.env These files contain name/value pairs for environment variables that can be interpreted by either docker
+as an --env_file parameter, or as files that dockerize can directly read, via the dockerize --env parameter.</p>
+<p>For the purposes of the config.json file, the key environment variable that determines the running environment is the &quot;deploy_environment&quot; variable, which is set to ci, appdev, next, prod as necessary. Another important variable is the flag &quot;uncompress&quot;, if this variable is set, then the nginx container will serve the uncompressed versions of the JS files. Leave uncompress <em>undefined</em> (not false or 0) to serve minified content.</p>
+<p>Other important environment variables are:</p>
+<ul>
+<li>nginx_listen - what port the nginx server should listen on. Note that the container only serves cleartext content. SSL should be handled by a separate proxy</li>
+<li>nginx_server_name - What server name should the nginx server present itself as?</li>
+<li>nginx_loglevel - what level of logging should be set in the nginx error log?</li>
+<li>nginx_syslog - enable syslogging of the nginx access and error logs</li>
+</ul>
+<p>As a rule, when there are differences in images between dev, CI, AppDev and Prod, work the differences into the template files or else have the differences enabled/disabled via environment variables or some configuration file setting.</p>
+<h2><a class="anchor" aria-hidden="true" id="updates"></a><a href="#updates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updates</h2>
+<h3><a class="anchor" aria-hidden="true" id="gitlab-configuration"></a><a href="#gitlab-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gitlab configuration</h3>
+<p>Deployment configurations for kbase-ui are stored at</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#ready-the-release">Ready the Release</a><ul class="toc-headings"><li><a href="#release-notes">Release Notes</a></li><li><a href="#release-config">Release Config</a></li><li><a href="#update-canonical-repo">Update Canonical Repo</a></li><li><a href="#merge-to-master">Merge to Master</a></li><li><a href="#test-the-presumptive-release">Test the Presumptive Release</a></li></ul></li><li><a href="#testing-a-tag-locally">Testing a tag locally</a></li><li><a href="#building-image">Building image</a><ul class="toc-headings"><li><a href="#tag-the-repo">tag the repo</a></li><li><a href="#build-kbase-ui">Build kbase-ui</a></li><li><a href="#build-the-image">build the image</a></li></ul></li><li><a href="#updates">Updates</a><ul class="toc-headings"><li><a href="#gitlab-configuration">gitlab configuration</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/kbase-ui-docs/" class="nav-home"><img src="/kbase-ui-docs/img/favicon.ico" alt="KBase UI Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/kbase-ui-docs/docs/en/getting-started/index.html">Getting Started</a></div><div><h5>Community</h5><a href="/kbase-ui-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/kbase-ui-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/kbase/kbase-ui/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 KBase </section></footer></div></body></html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>KBase UI Documentation Blog</title>
+        <link>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog</link>
+        <description>The best place to stay up-to-date with the latest KBase UI Documentation news and events.</description>
+        <lastBuildDate>Wed, 12 Jun 2019 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>KBase UI Documentation Blog</title>
+            <url>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/kbase_logo.png</url>
+            <link>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog</link>
+        </image>
+        <copyright>Copyright © 2019 KBase </copyright>
+        <item>
+            <title><![CDATA[First Post]]></title>
+            <link>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/2019/06/12/first-post.html</link>
+            <guid>https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/2019/06/12/first-post.html</guid>
+            <pubDate>Wed, 12 Jun 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>This is my first blog post...</p>
+]]></description>
+        </item>
+    </channel>
+</rss>
