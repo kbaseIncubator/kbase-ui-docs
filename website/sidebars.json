@@ -1,0 +1,36 @@
+{
+  "docs": {
+    "Getting Started": ["getting-started/index", "getting-started/prerequisites", "getting-started/quick-start"],
+    "Development": [
+      "development/index",
+      "development/prerequisites",
+      "development/setup",
+      "development/coding-standards",
+      "development/ide",
+      "development/team",
+      "development/unit-testing",
+      "development/integration-testing",
+      "development/documentation",
+      "development/deployment",
+      "development/qa"
+    ],
+    "Documentation": [
+      "documentation/index",
+      "documentation/using-typedoc",
+      "documentation/using-docusaurus",
+      "documentation/using-github-generated",
+      "documentation/using-ts-doc"
+    ],
+    "Tools": ["tools/index", "tools/playbook"],
+    "Testing": [],
+    "Ant Design": ["antd/index", "antd/theming", "antd/tips"],
+    "Guides": [
+      "guides/index",
+      {
+        "type": "subcategory",
+        "label": "Ant Design",
+        "ids": ["guides/antd/theming", "guides/antd/tips"]
+      }
+    ]
+  }
+}

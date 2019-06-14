@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kbase/kbase-ui-docs.git"
+    "url": "git+https://github.com/eapearson/kbase-ui-docs.git"
   },
   "keywords": [
     "kbase",
@@ -18,10 +18,8 @@
   "author": "KBase Developers",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/kbase/kbase-ui-docs/issues"
+    "url": "https://github.com/eapearson/kbase-ui-docs/issues"
   },
-  "homepage": "https://github.com/kbase/kbase-ui-docs#readme",
-  "dependencies": {
-    "docusaurus": "2.0.0-alpha.19"
-  }
+  "homepage": "https://github.com/eapearson/kbase-ui-docs#readme",
+  "dependencies": {}
 }
