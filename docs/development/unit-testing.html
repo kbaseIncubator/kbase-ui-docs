@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Unit Testing · KBase UI Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;unit-testing&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#unit-testing&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Unit Testing&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Unit Testing · KBase UI Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;unit-testing&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#unit-testing&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Unit Testing&lt;/h2&gt;
+"/><meta property="og:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/kbase-ui-docs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/atom.xml" title="KBase UI Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eapearson.github.io/kbase-ui-docs/kbase-ui-docs/blog/feed.xml" title="KBase UI Documentation Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-137652528-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/kbase-ui-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/kbase-ui-docs/css/main.css"/><script src="/kbase-ui-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/kbase-ui-docs/"><img class="logo" src="/kbase-ui-docs/img/kbase_logo.png" alt="KBase UI Documentation"/><h2 class="headerTitleWithLogo">KBase UI Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/kbase-ui-docs/docs/getting-started/" target="_self">Docs</a></li><li class=""><a href="/kbase-ui-docs/help" target="_self">Help</a></li><li class=""><a href="/kbase-ui-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Development</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/getting-started/">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/getting-started/prerequisites">Prerequisites</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/getting-started/quick-start">Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/">Overview</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/prerequisites">Prerequisites</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/setup">Setup</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/coding-standards">Coding Standards</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/ide">IDE</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/team">Team</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/kbase-ui-docs/docs/development/unit-testing">Unit Testing</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/integration-testing">Integration Testing</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/documentation">Documentation</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/deployment">Deployment</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/development/qa">Quality Assurance</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Documentation</h3><ul class=""><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/documentation/">Overview</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/documentation/using-typedoc">Using Typedoc</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/documentation/using-docusaurus">Using Docusaurus</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/documentation/using-github-generated">Using Github Generated Docs</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/documentation/using-ts-doc">Using TS Doc</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tools</h3><ul class=""><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/tools/">Overview</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/tools/playbook">Ant Design Playbook</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Ant Design</h3><ul class=""><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/antd/">Overview</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/antd/theming">Theming Ant Design</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/antd/tips">Ant Design Tips</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/guides/">Overview</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Ant Design</h4><ul><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/guides/antd/theming">Theming Ant Design</a></li><li class="navListItem"><a class="navItem" href="/kbase-ui-docs/docs/guides/antd/tips">Ant Design Tips</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Unit Testing</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="unit-testing"></a><a href="#unit-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unit Testing</h2>
+<h3><a class="anchor" aria-hidden="true" id="installation"></a><a href="#installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h3>
+<p>Our unit testing tools are based on the <a href="https://jestjs.io">Jest</a> testing framework and the <a href="https://airbnb.io/enzyme/">Enzyme</a> react testing library.</p>
+<h3><a class="anchor" aria-hidden="true" id="about"></a><a href="#about" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>About</h3>
+<p>For the purposes of this document, we consider unit tests to be those which do not require connection to KBase or other network-based services. All components which need to render data from kbase or other services are composed of an inner (leaf) component called a &quot;view&quot; component, and an outer component called a &quot;container&quot; or &quot;redux interface&quot;. Sometimes we need a third component called a &quot;loader&quot;.</p>
+<p>Unit testing only covers &quot;view&quot; components. This is no accident! On of he reasons we separate a component into multiple component layers is to allow the final view or display component to be more easily unit tested.</p>
+<h3><a class="anchor" aria-hidden="true" id="configuring-testing-in-your-project"></a><a href="#configuring-testing-in-your-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring testing in your project</h3>
+<p>The basic test mechanism is included with Create React App (CRA).</p>
+<h4><a class="anchor" aria-hidden="true" id="install-enzyme"></a><a href="#install-enzyme" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Enzyme</h4>
+<p>The enzyme library eases testing of React components.
+AKIYO: Do you think we need to specify we are using react v16 and this is for react v16?</p>
+<pre><code class="hljs css language-bash">npm install --save enzyme enzyme-adapter-react-16 react-test-renderer @types/enzyme @types/enzyme-adapter-react-16
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="include-exclude-test-files"></a><a href="#include-exclude-test-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Include &amp; Exclude Test Files</h4>
+<p>We'll need to tweak the test configuration in package.json:</p>
+<pre><code class="hljs css language-json">"jest": {
+    "collectCoverageFrom": [
+        "src/**/*.{ts,tsx}",
+        "!/node_modules/",
+        "!src/index.tsx",
+        "!src/serviceWorker.ts"
+    ]
+},
+</code></pre>
+<p>This ensures that we are testing all typescript files in the source directory, that we exclude all 3rd party library code, we skip the main index file referenced from index.html (it is not a module, so hard to test), and omit the service worker implementation included with CRA, but unused in our projects.
+Ref: <a href="https://jestjs.io/docs/en/configuration#collectcoveragefrom-array">https://jestjs.io/docs/en/configuration#collectcoveragefrom-array</a>
+AKIYO: should it to be &quot;! ** /node_modules/ ** ??</p>
+<h3><a class="anchor" aria-hidden="true" id="writing-tests"></a><a href="#writing-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writing Tests</h3>
+<p>Tests use <code>enzyme</code> and <code>jest</code>. Enzyme provides react integration, jest is a test framework.</p>
+<p>Each unit-testable code file has an accompanying test file in the same directory. Each test file is named after it's subject file, with <code>.test</code> added before the file suffix. Thus <code>MyFile.tsx</code>'s test file is <code>MyFile.test.tsx</code>.
+ref: <a href="https://facebook.github.io/create-react-app/docs/running-tests#filename-conventions">https://facebook.github.io/create-react-app/docs/running-tests#filename-conventions</a></p>
+<h4><a class="anchor" aria-hidden="true" id="base-level-test-i-m-alive"></a><a href="#base-level-test-i-m-alive" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Base level test - I'm Alive!</h4>
+<p>When creating a test for a component one typically starts with the bare minimum test to ensure that the test file works and the component can be loaded without error.</p>
+<pre><code class="hljs css language-typescript"><span class="hljs-comment">/**
+ * Unit tests for the KBaseIntegration component
+ */</span>
+
+<span class="hljs-comment">// We need to import React, even though we don't explicity use it, because</span>
+<span class="hljs-comment">// it's presence is required for JSX transpilation (the React object is</span>
+<span class="hljs-comment">// used in the transpiled code)</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+
+<span class="hljs-comment">// Enzyme needs</span>
+
+<span class="hljs-keyword">import</span> { configure, shallow, render, mount } <span class="hljs-keyword">from</span> <span class="hljs-string">"enzyme"</span>;
+<span class="hljs-keyword">import</span> Adapter <span class="hljs-keyword">from</span> <span class="hljs-string">"enzyme-adapter-react-16"</span>;
+
+<span class="hljs-comment">// We always need to import the component we are testing</span>
+<span class="hljs-keyword">import</span> Loader <span class="hljs-keyword">from</span> <span class="hljs-string">"./Loader"</span>;
+<span class="hljs-keyword">import</span> { AppState } <span class="hljs-keyword">from</span> <span class="hljs-string">"../redux/app/store"</span>;
+<span class="hljs-keyword">import</span> { AppError } <span class="hljs-keyword">from</span> <span class="hljs-string">"../redux/store"</span>;
+
+configure({ adapter: <span class="hljs-keyword">new</span> Adapter() });
+
+it(<span class="hljs-string">"renders without crashing"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> appState = AppState.NONE;
+  <span class="hljs-keyword">const</span> onLoad = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span>;
+  };
+  shallow(&lt;Loader status={appState} onLoad={onLoad} /&gt;);
+});
+</code></pre>
+<p>This test relies on the fact that if there were any problem in the test file, from imports to setup to the actual component rendering, it would throw an error and be caught by the test framework.</p>
+<h3><a class="anchor" aria-hidden="true" id="running-tests"></a><a href="#running-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running Tests</h3>
+<p>Tests are run using the built-in <code>test</code> script. All of the basic test configuration is included with CRA.</p>
+<pre><code class="hljs">npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
+</code></pre>
+<p>By default the test script is setup for continuous testing during development. It listens for file changes, and re-runs the tests automatically. The test runner will run tests against all files (first time) or changed files, with a small menu of options for re-running tests, exiting, etc.</p>
+<h4><a class="anchor" aria-hidden="true" id="coverage"></a><a href="#coverage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Coverage</h4>
+<p>Code coverage is a measure of how much of your code is exeuted during testing. Coverage is all about lines of code &quot;touched&quot; by the test. It does not measure whether tests actually cover an adequate range of values -- that part is up to you.</p>
+<p>We consider test coverage above 80% (?) to be acceptable, but coverage varies by the type of project. Part of test set up is to control which files are actually tested. For example, some files may be difficult to unit-test and will be excluded, but are involved in integration tests (which also have coverage.)a</p>
+<p>To see test code coverage, all we need to do is run the test command differently.</p>
+<pre><code class="hljs css language-bash">npm run <span class="hljs-built_in">test</span> -- --coverage
+</code></pre>
+<p>A summary of coverage is reported directly in the console, with color coding to indicate which files have good (green), adequate (orange), and poor (red) coverage.</p>
+<blockquote>
+<p>Note: the <code>--</code> argument causes npm to consider that the end of options, and passes the rest to the test script; otherwise, npm would absorb the <code>--coverage</code> option (which does nothing) and the test script would not generate coverage.</p>
+</blockquote>
+<p>After running the tests with coverage, you'll get a text-based table summarizing the results.</p>
+<pre><code class="hljs css language-bash">------------------------------------|----------|----------|----------|----------|-------------------|
+File                                |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line <span class="hljs-comment">#s |</span>
+------------------------------------|----------|----------|----------|----------|-------------------|
+All files                           |     2.92 |      1.9 |     6.17 |     2.93 |                   |
+ src                                |        0 |      100 |        0 |        0 |                   |
+  App.tsx                           |        0 |      100 |        0 |        0 |       37,49,50,54 |
+ src/components                     |        0 |        0 |        0 |        0 |                   |
+  JobLog.tsx                        |        0 |        0 |        0 |        0 |... 68,77,78,80,87 |
+  MyJobs.tsx                        |        0 |        0 |        0 |        0 |... 07,716,720,729 |
+  UserJobs-container.tsx            |        0 |      100 |        0 |        0 |... 65,67,70,73,78 |
+  UserJobs.tsx                      |        0 |        0 |        0 |        0 |... 48,657,661,670 |
+  time.ts                           |        0 |        0 |        0 |        0 |... 45,147,153,155 |
+ src/kbaseUI/components             |    28.57 |       25 |    42.86 |    28.57 |                   |
+  AppBase.tsx                       |        0 |        0 |        0 |        0 |    17,18,19,25,29 |
+  Loader.tsx                        |    44.44 |    33.33 |       75 |    44.44 |    18,19,25,44,46 |
+ src/kbaseUI/components/auth        |    18.18 |       15 |    28.57 |    18.18 |                   |
+  loader.tsx                        |        0 |      100 |        0 |        0 | 23,24,30,32,35,38 |
+  view.tsx                          |    22.22 |       15 |    44.44 |    22.22 |... 07,109,115,121 |
+ src/kbaseUI/components/integration |    28.57 |      100 |       25 |    28.57 |                   |
+  container.tsx                     |        0 |      100 |        0 |        0 |       35,36,43,45 |
+  loader.tsx                        |        0 |      100 |        0 |        0 |    12,41,42,48,50 |
+  view.tsx                          |       80 |      100 |       60 |       80 |                70 |
+------------------------------------|----------|----------|----------|----------|-------------------|
+</code></pre>
+<p>The practice of achieving a given code coverage is to iteratively add tests and inspect the coverage results. We have a long way to go, clearly, at just under 3% code coverage!!</p>
+<p>And our example test for <code>Loader.tsx</code> is quite low as well, between 33% and 44% (depending on the column).</p>
+<h4><a class="anchor" aria-hidden="true" id="more-detailed-coverage-report"></a><a href="#more-detailed-coverage-report" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More detailed coverage report</h4>
+<p>In addition to the summary, the coverage tool also produces a detailed report, which provides a per-file view of which lines were or were not covered.</p>
+<p>The detailed coverage report is located in <code>src/react-app/coverage</code>, and is excluded from git commits. To view the report you need to open <code>src/react-app/coverage/lcov-report/index.html</code> in your favorite browser.</p>
+<p>E.g.</p>
+<pre><code class="hljs css language-bash">open coverage/lcov-report/index.html
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="better-unit-tests"></a><a href="#better-unit-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Better unit tests</h4>
+<p>But we haven't tested any characteristics of the component itself, so lets add more tests.</p>
+<p>If we look at the coverage report for <code>Loader.tsx</code>, we can see that in the main entry point, the <code>render</code> method, some branches of the top level switch are not covered, and as a result some of the rendering methods are not covered either.</p>
+<h5><a class="anchor" aria-hidden="true" id="covering-branches"></a><a href="#covering-branches" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Covering branches</h5>
+<p>Many components present different behavior and interfaces based on the evaluation of props or state, rendering content in conditional statements like <code>switch</code>, <code>if</code>, and so forth.</p>
+<p>One of the main tasks of writing unit tests is to ensure that all of those conditional code branches are covered by tests. This is typically done by creating one test per unique combination of prop values.</p>
+<p>For component props with discrete, definite values, this is straightforward. In the Loader example, the component state is represented as a value of type <code>AppState</code> which is itself an enum. To provide coverage for the <code>switch</code> over app state in the Loader component, we just need to create one test per enum value.</p>
+<p>There is a bit more to it than that. The change in prop value will change the rendered content, so we need to be able to test the specific content rendered.</p>
+<p>Props with continuous values will require a different treatment, and how to test with them is somewhat specific to how they are used. A prop value with a restricted range (e.g. age, which is between say 0 and 200) can be tested for at the lower bound, upper bound, and in the middle. For testing error conditions you would also want to test below and above the bounds.</p>
+<h5><a class="anchor" aria-hidden="true" id="covering-different-rendered-markup"></a><a href="#covering-different-rendered-markup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Covering different rendered markup</h5>
+<p>There are two basic approaches to testing rendered content.</p>
+<p>First we need to ensure that we can deterministically find the content in the rendered DOM. We do this by creating &quot;testhooks&quot;. These are specially formatted <code>data-</code> attributes which we set up in our rendering methods and which we access in our tests in DOM selectors. Often folks will use class names or ids to locate rendered DOM elements, but these each present problems.</p>
+<p>Classes are problematic because their primary usage is for styling. Changing the styling should not (necessarily, unless that is what one is testing!) affect the testing of basic DOM structure and the presence of required elements.</p>
+<p>IDs are a problem for an unusual reason. By definition, each id value within a document needs to be unique. However, when developers manually create ids on elements they often create duplicates. Duplicate ids is a violation of the DOM, but most browsers will not trigger an error, rather they return a collection of elements with e.g. querySelectAll. Given this uncertainty, it is best to avoid them for tests, unless it is well established that they are unique.</p>
+<p>The testhook is an attribute in the format <code>data-k-b-testhook-TYPE=&quot;VALUE&quot;</code>, where</p>
+<ul>
+<li><code>data-</code> is the standard html5 prefix for user defined attributes, <code>k-b</code> is simply a name spacing for <code>KBase</code>,</li>
+<li><code>testhook</code> is the what we use for all test hooks,</li>
+<li><code>TYPE</code> varies by the primary type of element the attribute is attached to, and -<code>&quot;VALUE&quot;</code> is used to identify the testbhook within its DOM scope.</li>
+</ul>
+<p>Common types include <code>plugin</code>, <code>component</code>, <code>button</code>, <code>tab</code>, and so forth. For general elements like divs, <code>element</code> is fine. The reason to use the type in the attribute name is to provide multiple testing namespaces, which allows simpler attribute values, and reduces the chance of collision.</p>
+<h5><a class="anchor" aria-hidden="true" id="covering-states"></a><a href="#covering-states" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Covering states</h5>
+<p>[ to be done ]</p>
+<h5><a class="anchor" aria-hidden="true" id="testing-rendered-component"></a><a href="#testing-rendered-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing rendered component</h5>
+<p>[ to be done]</p>
+<h3><a class="anchor" aria-hidden="true" id="tips"></a><a href="#tips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tips</h3>
+<h4><a class="anchor" aria-hidden="true" id="testing-componentwillunmount"></a><a href="#testing-componentwillunmount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing componentWillUnmount</h4>
+<p>To ensure that <code>componentWillUnmount</code> will be included in test coverage, you need to use <code>mount</code> and <code>unmount</code>, not <code>shallow</code>.</p>
+<p>E.g.</p>
+<pre><code class="hljs css language-typescript">it(<span class="hljs-string">"renders without crashing"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> channelId = <span class="hljs-literal">null</span>;
+  <span class="hljs-keyword">const</span> onAppStart = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span>;
+  };
+
+  <span class="hljs-keyword">const</span> rendered = mount(&lt;KBaseIntegration channelId={channelId} onAppStart={onAppStart} /&gt;);
+  rendered.unmount();
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="issues"></a><a href="#issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Issues</h3>
+<h4><a class="anchor" aria-hidden="true" id="type-only-files"></a><a href="#type-only-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type-only files</h4>
+<p>Tests for type-only files do not report correctly, showing no coverage for functions, etc. since there are none. The bandaid for this is to add an exported dummy function and include it in the tests.</p>
+<h4><a class="anchor" aria-hidden="true" id="antd-with-override"></a><a href="#antd-with-override" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Antd with override</h4>
+<p>The <code>craco</code> CRA override library causes tests to fail if <code>antd</code> components are loaded like this:</p>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">import</span> { Button } <span class="hljs-keyword">from</span> <span class="hljs-string">"antd"</span>;
+</code></pre>
+<p><code>antd</code> imports should be of the form:</p>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">"antd/lib/button"</span>;
+</code></pre>
+<p>This also has the benefit of reducing build size (since it only includes the button component in the build, whereas the first includes all of antd.)</p>
+<p>It is a pain, though, because VSC will auto-import using the first form.a</p>
+<p>Note that as of now (5/23/19) antd will soon be releasing an update which provides for smaller build sizes without having to use a specific import form like above.</p>
+<h2><a class="anchor" aria-hidden="true" id="integration-tests"></a><a href="#integration-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integration Tests</h2>
+<p>[ to be done ]</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/kbase-ui-docs/docs/development/team"><span class="arrow-prev">← </span><span>Team</span></a><a class="docs-next button" href="/kbase-ui-docs/docs/development/integration-testing"><span>Integration Testing</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#unit-testing">Unit Testing</a><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#about">About</a></li><li><a href="#configuring-testing-in-your-project">Configuring testing in your project</a></li><li><a href="#writing-tests">Writing Tests</a></li><li><a href="#running-tests">Running Tests</a></li><li><a href="#tips">Tips</a></li><li><a href="#issues">Issues</a></li></ul></li><li><a href="#integration-tests">Integration Tests</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/kbase-ui-docs/" class="nav-home"><img src="/kbase-ui-docs/img/favicon.ico" alt="KBase UI Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/kbase-ui-docs/docs/en/getting-started/index.html">Getting Started</a></div><div><h5>Community</h5><a href="/kbase-ui-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/kbase-ui-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/kbase/kbase-ui/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 KBase </section></footer></div></body></html>
