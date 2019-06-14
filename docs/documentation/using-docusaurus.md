@@ -34,7 +34,7 @@ npm run start
 
 Documentation publication is automated. A commit to the master branch of the documentation repo (e.g. https://github.com/kbase/kbase-ui-docs) will trigger a documentation build and publication via travis.
 
-The process is described (roughly) by https://docusaurus.io/docs/en/next/publishing#using-travis-ci.
+The process is described by https://docusaurus.io/docs/en/next/publishing#using-travis-ci.
 
 The documentation will be published at a url like: `https://kbase.github.io/THE_REPO`.
 
