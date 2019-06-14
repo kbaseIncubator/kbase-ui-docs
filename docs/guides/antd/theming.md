@@ -87,21 +87,21 @@ my-app
 └── package.json
 ```
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Typescript -->
-
 ```typescript
 const CracoAntDesignPlugin = require("craco-antd");
+const path = require("path");
 
 module.exports = {
-  plugins: [{ plugin: CracoAntDesignPlugin }]
+  plugins: [
+    {
+      plugin: CracoAntDesignPlugin,
+      options: {
+        customizeThemeLessPath: path.join(__dirname, "src/custom/style/antd/theme.less")
+      }
+    }
+  ]
 };
 ```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-> AKIYO: how does it know where to look for the file? It's not working for me.
-> ERIK: By default craco will look for that specific file. `craco` supports other methods of configuration: https://github.com/sharegate/craco/blob/master/packages/craco/README.md#custom-location-for-cracoconfigjs
 
 Add the antd customization less file in `src/react-app/custom/style/antd/theme.less`:
 
@@ -126,7 +126,7 @@ npm install --save-dev nodemon
 Update the start script:
 
 ```json
-"scripts
+"start": "nodemon -w ./craco.config.js -w ./src/custom/style/antd/theme.less --exec 'craco start'",
 ```
 
 #### Refs
@@ -142,27 +142,44 @@ Here is a start:
 > This is a working set of overrides, we are currently actively development them, so they WILL change!
 
 ```less
+/**
+* Primary antd colors. 
+* Blue, green, gold are derived from the kbase logo colors.
+*/
 @blue-kbase: rgb(22, 99, 186);
+@green-kbase: rgb(45, 135, 48);
+@gold-kbase: rgb(251, 116, 7);
+@red-kbase: rgb(163, 36, 36);
+@font-size-base-kbase: 16px;
+@font-family-kbase: "Oxygen";
 
 // antd theme customization
 @primary-color: @blue-kbase;
+// @primary-color: @debug-kbase;
+
 @info-color: @blue-kbase;
-@success-color: @green-6;
+@success-color: @green-kbase;
 @processing-color: @blue-kbase;
-@error-color: @red-6;
-@highlight-color: @red-6;
-@warning-color: @gold-6;
+@error-color: @red-kbase;
+@highlight-color: @red-kbase;
+@warning-color: @gold-kbase;
 @normal-color: #d9d9d9;
 
-@font-family: "Oxygen";
+/**
+* Use KBase fonts. 
+* Note: Currently the kbase ui uses oxygen for most text, and roboto for
+* headlines.
+*/
+@font-family: @font-family-kbase;
 @code-family: monospace;
+
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
 @text-color-warning: @gold-7;
 @text-color-danger: @red-7;
 @text-color-inverse: @white;
 
-@font-size-base: 14px;
+@font-size-base: @font-size-base-kbase;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
 @heading-1-size: ceil(@font-size-base * 2.71);
