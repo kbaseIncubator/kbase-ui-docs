@@ -118,12 +118,20 @@ Ref: <a href="https://github.com/sharegate/craco/blob/master/packages/craco/READ
 ├── craco<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>
 └── package<span class="hljs-selector-class">.json</span>
 </code></pre>
-<div class="tabs"><div class="nav-tabs"><div id="tab-group-3-tab-4" class="nav-link active" data-group="group_3" data-tab="tab-group-3-content-4">Typescript</div></div><div class="tab-content"><div id="tab-group-3-content-4" class="tab-pane active" data-group="group_3" tabindex="-1"><div><span><pre><code class="hljs css language-typescript"><span class="hljs-keyword">const</span> CracoAntDesignPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"craco-antd"</span>);<br /><br /><span class="hljs-built_in">module</span>.exports = {<br />  plugins: [{ plugin: CracoAntDesignPlugin }]<br />};<br /></code></pre>
-</span></div></div></div></div>
-<blockquote>
-<p>AKIYO: how does it know where to look for the file? It's not working for me.
-ERIK: By default craco will look for that specific file. <code>craco</code> supports other methods of configuration: <a href="https://github.com/sharegate/craco/blob/master/packages/craco/README.md#custom-location-for-cracoconfigjs">https://github.com/sharegate/craco/blob/master/packages/craco/README.md#custom-location-for-cracoconfigjs</a></p>
-</blockquote>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">const</span> CracoAntDesignPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"craco-antd"</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+  plugins: [
+    {
+      plugin: CracoAntDesignPlugin,
+      options: {
+        customizeThemeLessPath: path.join(__dirname, <span class="hljs-string">"src/custom/style/antd/theme.less"</span>)
+      }
+    }
+  ]
+};
+</code></pre>
 <p>Add the antd customization less file in <code>src/react-app/custom/style/antd/theme.less</code>:</p>
 <pre><code class="hljs css language-less"><span class="hljs-comment">// antd theme customization</span>
 <span class="hljs-comment">// @primary-color: #1da57a;</span>
@@ -136,7 +144,7 @@ ERIK: By default craco will look for that specific file. <code>craco</code> supp
 <pre><code class="hljs css language-bash">npm install --save-dev nodemon
 </code></pre>
 <p>Update the start script:</p>
-<pre><code class="hljs css language-json">"scripts
+<pre><code class="hljs css language-json">"start": "nodemon -w ./craco.config.js -w ./src/custom/style/antd/theme.less --exec 'craco start'",
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="refs"></a><a href="#refs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Refs</h4>
 <p><a href="https://github.com/DocSpring/craco-antd#reload-custom-variables-during-development">https://github.com/DocSpring/craco-antd#reload-custom-variables-during-development</a></p>
@@ -146,27 +154,44 @@ ERIK: By default craco will look for that specific file. <code>craco</code> supp
 <blockquote>
 <p>This is a working set of overrides, we are currently actively development them, so they WILL change!</p>
 </blockquote>
-<pre><code class="hljs css language-less"><span class="hljs-variable">@blue-kbase:</span> rgb(<span class="hljs-number">22</span>, <span class="hljs-number">99</span>, <span class="hljs-number">186</span>);
+<pre><code class="hljs css language-less"><span class="hljs-comment">/**
+* Primary antd colors. 
+* Blue, green, gold are derived from the kbase logo colors.
+*/</span>
+<span class="hljs-variable">@blue-kbase:</span> rgb(<span class="hljs-number">22</span>, <span class="hljs-number">99</span>, <span class="hljs-number">186</span>);
+<span class="hljs-variable">@green-kbase:</span> rgb(<span class="hljs-number">45</span>, <span class="hljs-number">135</span>, <span class="hljs-number">48</span>);
+<span class="hljs-variable">@gold-kbase:</span> rgb(<span class="hljs-number">251</span>, <span class="hljs-number">116</span>, <span class="hljs-number">7</span>);
+<span class="hljs-variable">@red-kbase:</span> rgb(<span class="hljs-number">163</span>, <span class="hljs-number">36</span>, <span class="hljs-number">36</span>);
+<span class="hljs-variable">@font-size-base-kbase:</span> <span class="hljs-number">16px</span>;
+<span class="hljs-variable">@font-family-kbase:</span> <span class="hljs-string">"Oxygen"</span>;
 
 <span class="hljs-comment">// antd theme customization</span>
 <span class="hljs-variable">@primary-color:</span> <span class="hljs-variable">@blue-kbase</span>;
+<span class="hljs-comment">// @primary-color: @debug-kbase;</span>
+
 <span class="hljs-variable">@info-color:</span> <span class="hljs-variable">@blue-kbase</span>;
-<span class="hljs-variable">@success-color:</span> <span class="hljs-variable">@green-6</span>;
+<span class="hljs-variable">@success-color:</span> <span class="hljs-variable">@green-kbase</span>;
 <span class="hljs-variable">@processing-color:</span> <span class="hljs-variable">@blue-kbase</span>;
-<span class="hljs-variable">@error-color:</span> <span class="hljs-variable">@red-6</span>;
-<span class="hljs-variable">@highlight-color:</span> <span class="hljs-variable">@red-6</span>;
-<span class="hljs-variable">@warning-color:</span> <span class="hljs-variable">@gold-6</span>;
+<span class="hljs-variable">@error-color:</span> <span class="hljs-variable">@red-kbase</span>;
+<span class="hljs-variable">@highlight-color:</span> <span class="hljs-variable">@red-kbase</span>;
+<span class="hljs-variable">@warning-color:</span> <span class="hljs-variable">@gold-kbase</span>;
 <span class="hljs-variable">@normal-color:</span> <span class="hljs-number">#d9d9d9</span>;
 
-<span class="hljs-variable">@font-family:</span> <span class="hljs-string">"Oxygen"</span>;
+<span class="hljs-comment">/**
+* Use KBase fonts. 
+* Note: Currently the kbase ui uses oxygen for most text, and roboto for
+* headlines.
+*/</span>
+<span class="hljs-variable">@font-family:</span> <span class="hljs-variable">@font-family-kbase</span>;
 <span class="hljs-variable">@code-family:</span> monospace;
+
 <span class="hljs-variable">@text-color:</span> fade(<span class="hljs-variable">@black</span>, <span class="hljs-number">65%</span>);
 <span class="hljs-variable">@text-color-secondary:</span> fade(<span class="hljs-variable">@black</span>, <span class="hljs-number">45%</span>);
 <span class="hljs-variable">@text-color-warning:</span> <span class="hljs-variable">@gold-7</span>;
 <span class="hljs-variable">@text-color-danger:</span> <span class="hljs-variable">@red-7</span>;
 <span class="hljs-variable">@text-color-inverse:</span> <span class="hljs-variable">@white</span>;
 
-<span class="hljs-variable">@font-size-base:</span> <span class="hljs-number">14px</span>;
+<span class="hljs-variable">@font-size-base:</span> <span class="hljs-variable">@font-size-base-kbase</span>;
 <span class="hljs-variable">@font-size-lg:</span> <span class="hljs-variable">@font-size-base</span> + <span class="hljs-number">2px</span>;
 <span class="hljs-variable">@font-size-sm:</span> <span class="hljs-number">12px</span>;
 <span class="hljs-variable">@heading-1-size:</span> ceil(<span class="hljs-variable">@font-size-base</span> * <span class="hljs-number">2.71</span>);
