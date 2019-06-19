@@ -18,7 +18,7 @@
       "documentation/index",
       "documentation/using-typedoc",
       "documentation/using-docusaurus",
-      "documentation/using-github-generated",
+      "documentation/using-github-pages",
       "documentation/using-ts-doc"
     ],
     "Tools": ["tools/index", "tools/playbook"],
