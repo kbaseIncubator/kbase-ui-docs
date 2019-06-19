@@ -65,13 +65,17 @@
         "title": "Overview",
         "sidebar_label": "Overview"
       },
+      "documentation/overview": {
+        "title": "Documentation",
+        "sidebar_label": "Documentation"
+      },
       "documentation/using-docusaurus": {
         "title": "Using Docusaurus",
         "sidebar_label": "Using Docusaurus"
       },
-      "documentation/using-github-generated": {
-        "title": "Using Github Generated Docs",
-        "sidebar_label": "Using Github Generated Docs"
+      "documentation/using-github-pages": {
+        "title": "Using Github Pages Docs",
+        "sidebar_label": "Using Github Pages Docs"
       },
       "documentation/using-ts-doc": {
         "title": "Using TS Doc",
@@ -110,6 +114,14 @@
       "guides/index": {
         "title": "Overview",
         "sidebar_label": "Overview"
+      },
+      "guides/npm/index": {
+        "title": "Overview",
+        "sidebar_label": "Overview"
+      },
+      "guides/npm/publishing": {
+        "title": "Publishing",
+        "sidebar_label": "Publishing"
       },
       "tools/index": {
         "title": "Overview",
