@@ -8,7 +8,7 @@ Generate documentation thanks to the magic of Github Pages powered by Jekyll.
 
 Any KBase github repo can generate documentation from markdown using Github Pages.
 
-With Github Pages integration enabled for your repo (you must be a repo owner to access the repo configuration), Github will build and publish your documentation as a Jekyll project whenever there is a merge into the master branch.
+With Github Pages integration enabled for your repo (you must be a repo owner to access the repo configuration), Github will build and publish your documentation as a Jekyll project whenever there is a merge into the master branch, e.g. by a direct push or the merging of a pull request.
 
 The documentation can be provided in two different ways. Which one to use depends on the workflow for the repo.
 
