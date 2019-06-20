@@ -1,8 +1,7 @@
 ---
-id: using-github-pages
-title: Using Github Pages Docs
-sidebar_label: Using Github Pages Docs
 ---
+
+# Using Github Pages
 
 Generate documentation thanks to the magic of Github Pages powered by Jekyll.
 
@@ -34,11 +33,13 @@ E.g. `https://kbase.github.io/kbase-ui-lib`
 
 ```yaml
 ---
+
 title: Home
 permalink: /index.html
+
 ---
 
-```
+````
 
 > hmm, lets see if this is still true...
 
@@ -73,7 +74,7 @@ aux_links:
     - "//github.com/kbase/{YOUR REPO}"
   "About KBase":
     - "//kbase.us/about"
-```
+````
 
 where you should of course replace `{YOUR PROJECT}` with the title of your project, and `{YOUR REPO}` with your repo name.
 

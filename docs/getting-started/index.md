@@ -1,7 +1,4 @@
 ---
-id: index
-title: Getting Started
-sidebar_label: Getting Started
 ---
 
 This document has in mind three different types of users: Developers, Devops, and Reviewers.

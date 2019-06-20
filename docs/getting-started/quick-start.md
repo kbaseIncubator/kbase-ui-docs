@@ -1,8 +1,7 @@
 ---
-id: quick-start
-title: Quick Start
-sidebar_label: Quick Start
 ---
+
+# Quick Start
 
 This guide should allow you to run kbase-ui on your host system. For more advanced developer or deployment scenarios, consult ...
 

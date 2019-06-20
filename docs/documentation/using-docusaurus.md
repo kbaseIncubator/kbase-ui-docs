@@ -1,7 +1,4 @@
 ---
-id: using-docusaurus
-title: Using Docusaurus
-sidebar_label: Using Docusaurus
 ---
 
 We use [Docusaurus](https://docusaurus.io) for creating high level, cross-repo documentation. Docusaurus works by generating a small web site out of the source material - markdown, images, html, configuration. It contains built-in support for publication through github.io, which we utilize.

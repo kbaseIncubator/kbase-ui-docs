@@ -1,7 +1,4 @@
 ---
-id: overview
-title: Documentation
-sidebar_label: Documentation
 ---
 
 ## Repo
