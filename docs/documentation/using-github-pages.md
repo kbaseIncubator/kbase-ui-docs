@@ -1,14 +1,13 @@
 ---
-id: using-github-pages
-title: Using Github Pages Docs
-sidebar_label: Using Github Pages Docs
 ---
+
+# Using Github Pages
 
 Generate documentation thanks to the magic of Github Pages powered by Jekyll.
 
 Any KBase github repo can generate documentation from markdown using Github Pages.
 
-With Github Pages integration enabled for your repo (you must be a repo owner to access the repo configuration), Github will build and publish your documentation as a Jekyll project whenever there is a merge into the master branch.
+With Github Pages integration enabled for your repo (you must be a repo owner to access the repo configuration), Github will build and publish your documentation as a Jekyll project whenever there is a merge into the master branch, e.g. by a direct push or the merging of a pull request.
 
 The documentation can be provided in two different ways. Which one to use depends on the workflow for the repo.
 
@@ -34,11 +33,13 @@ E.g. `https://kbase.github.io/kbase-ui-lib`
 
 ```yaml
 ---
+
 title: Home
 permalink: /index.html
+
 ---
 
-```
+````
 
 > hmm, lets see if this is still true...
 
@@ -73,7 +74,7 @@ aux_links:
     - "//github.com/kbase/{YOUR REPO}"
   "About KBase":
     - "//kbase.us/about"
-```
+````
 
 where you should of course replace `{YOUR PROJECT}` with the title of your project, and `{YOUR REPO}` with your repo name.
 

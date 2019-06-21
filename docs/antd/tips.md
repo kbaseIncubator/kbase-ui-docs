@@ -1,8 +1,7 @@
 ---
-id: tips
-title: Ant Design Tips
-sidebar_label: Ant Design Tips
 ---
+
+# Ant Design Tips
 
 ## Background
 

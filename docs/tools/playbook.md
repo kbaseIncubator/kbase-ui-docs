@@ -1,8 +1,7 @@
 ---
-id: playbook
-title: Ant Design Playbook
-sidebar_label: Ant Design Playbook
 ---
+
+# Playbook
 
 ## Background
 

@@ -1,8 +1,7 @@
 ---
-id: theming
-title: Theming Ant Design
-sidebar_label: Theming Ant Design
 ---
+
+# Theming Ant Design
 
 ## Background
 
