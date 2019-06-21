@@ -1,8 +1,8 @@
 GIT
-  remote: https://github.com/eapearson/just-the-docs
-  revision: c4b686ec413a1507396f2492ea2a90e4d755ea08
+  remote: https://github.com/kbaseIncubator/kbase-github-pages-theme
+  revision: a1f24fc48837924b27b85d3d0c9bcef24d56b3af
   specs:
-    just-the-docs (0.2.5)
+    kbase-github-pages-theme (0.2.5)
       jekyll (~> 3.8.5)
       jekyll-seo-tag (~> 2.0)
       rake (~> 12.3.1)
@@ -253,7 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  just-the-docs!
+  kbase-github-pages-theme!
 
 BUNDLED WITH
    2.0.2

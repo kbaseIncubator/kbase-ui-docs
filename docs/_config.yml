@@ -1,6 +1,6 @@
 title: KBase UI Docs
 # markdown: kramdown
-remote_theme: eapearson/just-the-docs
+remote_theme: kbaseIncubator/kbase-github-pages-theme
 search_enabled: false
 aux_links: 
     "KBase UI on Github":
