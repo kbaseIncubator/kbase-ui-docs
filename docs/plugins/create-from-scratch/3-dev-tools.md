@@ -3,11 +3,11 @@
 
 # Step 3. Developer Tools
 
-KBase recommends and supports Visual Studio Code for front end development.
+
 
 - vsc
 
-[ to be written ]
+KBase recommends and supports Visual Studio Code for front end development.
 
 - eslint
 
