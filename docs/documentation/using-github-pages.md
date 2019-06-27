@@ -203,7 +203,7 @@ However, even in the latter case, it is faster to preview locally.
 1. Ruby is built into macOS, and the version should be fine
    - to check just type `ruby --version` into Terminal; the version must be greater than 2.1
 2. Install `Bundler`
-   - From Terminal, enter `sudo gem install bundler`
+   - From Terminal, enter `sudo gem install -n /usr/local/bin bundler`
 3. Create github pages gemfile
 
    - In the `/docs` folder of your repo, create the file `Gemfile` with the following contents:
