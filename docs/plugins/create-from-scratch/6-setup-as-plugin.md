@@ -98,7 +98,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - within `redux`, create `actions.ts` with the following code
 
       ```typescript
-      import Action from "redux";
+      import { Action } from "redux";
       ```
 
     - within `redux`, create `store.ts` with the following code.
