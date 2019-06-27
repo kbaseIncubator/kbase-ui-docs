@@ -40,7 +40,9 @@ navigation:
               - label: 5. A Quick Refactor
               - label: 6. Setup as Plugin
               - label: 7. Add Ant Design
-              - label: 8. Fin
+              - label: 8. Add to KBase UI 
+              - label: 9. Add Testing
+              - label: 10. Fin
         - label: Create from Template
     - label: Documentation
       menu:
