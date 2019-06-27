@@ -52,7 +52,7 @@
 
 6. Add to ui menu:
 
-  > to be written - until then, after the above 
+    > to be written 
 
 ## Next Step
 
