@@ -16,10 +16,7 @@
             url: https://github.com/kbaseIncubator/kbase-ui-plugin-example-hello
     ```
 
-
-
-2. 
-
+2. Still working on this...
 
 ## Next Step
 

@@ -42,7 +42,8 @@ navigation:
               - label: 7. Add Ant Design
               - label: 8. Add to KBase UI 
               - label: 9. Add Testing
-              - label: 10. Fin
+              - label: 10. Add Documentation
+              - label: 11. Fin
         - label: Create from Template
     - label: Documentation
       menu:
