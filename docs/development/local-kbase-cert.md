@@ -20,7 +20,7 @@ This allows using a browser in its normal mode, with full plugin support.
 
 ## Instructions
 
-The solution hinges on a single utility named `mkcert`: https://github.com/FiloSottile/mkcert
+The solution hinges on a utility named `mkcert`: https://github.com/FiloSottile/mkcert
 
 `mkcert` works by installing its own certficate authority (CS) into the local system and browser (Firefox, Chrome) trust stores and generating a certificate and key which will be subsequently trusted, and avoid browser (and test tool) workarounds required by using a self signed cert.
 

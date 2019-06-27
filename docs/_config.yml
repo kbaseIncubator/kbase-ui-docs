@@ -3,8 +3,8 @@ title: KBase UI Docs
 remote_theme: kbaseIncubator/kbase-github-pages-theme
 search_enabled: false
 aux_links: 
-    "KBase UI on Github":
-        - "//github.com/kbase/kbase-ui"
+    "KBase UI Docs on Github":
+        - "//github.com/kbaseIncubator/kbase-ui-docs"
     "About KBase":
         - "//kbase.us/about"
 navigation:
@@ -28,6 +28,20 @@ navigation:
         - label: QA
         - label: Team
         - label: Deployment
+    - label: Plugins
+      menu: 
+        - label: Architecture
+        - label: Create from Scratch
+          menu:
+              - label: 1. Setup
+              - label: 2. Create Repos
+              - label: 3. Dev Tools
+              - label: 4. Say Hello
+              - label: 5. A Quick Refactor
+              - label: 6. Setup as Plugin
+              - label: 7. Add Ant Design
+              - label: 8. Fin
+        - label: Create from Template
     - label: Documentation
       menu:
         - label: Overview
@@ -43,3 +57,10 @@ navigation:
     - label: Tools
       menu: 
         - label: Playbook
+# markdown: kramdown
+# kramdown:
+#     highlighter: rouge
+#     syntax_highlighter_opts:
+#         css_class: highlight
+#         block:
+#             line_numbers: true

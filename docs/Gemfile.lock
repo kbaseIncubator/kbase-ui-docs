@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/kbaseIncubator/kbase-github-pages-theme
-  revision: a1f24fc48837924b27b85d3d0c9bcef24d56b3af
+  revision: e254188c98bcc3cd83b8fb09a60f53660be178a0
   specs:
-    kbase-github-pages-theme (0.2.5)
+    kbase-github-pages-theme (0.2.8)
       jekyll (~> 3.8.5)
       jekyll-seo-tag (~> 2.0)
       rake (~> 12.3.1)
@@ -220,7 +220,7 @@ GEM
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (3.1.0)
+    public_suffix (3.1.1)
     rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
