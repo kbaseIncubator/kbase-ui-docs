@@ -16,7 +16,7 @@ Read the [prerequisites](prerequisites.md) guide to ensure your host machine is 
 4. Clone the _kbase/kbase-ui_ repo into this folder:
 
    ```bash
-   git clone -b develop https://github.com/{YOUR_ACCOUNT}/kbase-ui
+   git clone -b feature-refactor-to-crats https://github.com/{YOUR_ACCOUNT}/kbase-ui
    ```
 
    where `{YOUR_ACCOUNT}` is your personal github account to which you have forked the upstream https://github.com/kbase/kbase-ui. Of course, if you prefer to work with ssh authorization, use that form instead:
