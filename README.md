@@ -1,8 +1,6 @@
 # KBase UI Docs
 
-Documentation which spans front end projects.
-
-BRIEF DESCRIPTION
+> Documentation which spans front end projects.
 
 ## Usage
 
