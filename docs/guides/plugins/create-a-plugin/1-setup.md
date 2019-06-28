@@ -1,6 +1,3 @@
----
----
-
 # Step 1. Set up kbase-ui work environment
 
 Read the [prerequisites](prerequisites.md) guide to ensure your host machine is up to snuff.

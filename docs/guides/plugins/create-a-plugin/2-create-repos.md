@@ -1,6 +1,3 @@
----
----
-
 # Step 2: Create Repos
 
 Each plugin lives it its own repo, the canonical upstream source for which is in the _KBase_ organization at github.

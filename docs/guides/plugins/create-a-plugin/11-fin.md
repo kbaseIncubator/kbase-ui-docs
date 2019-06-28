@@ -1,6 +1,3 @@
----
----
-
 # Step 8: Fin
 
 You are now done.

@@ -23,7 +23,6 @@ The basic test mechanism is included with Create React App (CRA).
 #### Install Enzyme
 
 The enzyme library eases testing of React components.
-AKIYO: Do you think we need to specify we are using react v16 and this is for react v16?
 
 ```bash
 npm install --save enzyme enzyme-adapter-react-16 react-test-renderer @types/enzyme @types/enzyme-adapter-react-16
@@ -33,20 +32,21 @@ npm install --save enzyme enzyme-adapter-react-16 react-test-renderer @types/enz
 
 We'll need to tweak the test configuration in package.json:
 
-```json
-"jest": {
-	"collectCoverageFrom": [
-		"src/**/*.{ts,tsx}",
-		"!/node_modules/",
-		"!src/index.tsx",
-		"!src/serviceWorker.ts"
-	]
-},
-```
+  ```json
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!/node_modules/",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts"
+    ]
+  },
+  ```
 
 This ensures that we are testing all typescript files in the source directory, that we exclude all 3rd party library code, we skip the main index file referenced from index.html (it is not a module, so hard to test), and omit the service worker implementation included with CRA, but unused in our projects.
-Ref: [https://jestjs.io/docs/en/configuration#collectcoveragefrom-array](https://jestjs.io/docs/en/configuration#collectcoveragefrom-array)
-AKIYO: should it to be "! ** /node_modules/ ** ??
+
+##### Refs
+- [https://jestjs.io/docs/en/configuration#collectcoveragefrom-array](https://jestjs.io/docs/en/configuration#collectcoveragefrom-array)
 
 ### Writing Tests
 
@@ -122,28 +122,28 @@ After running the tests with coverage, you'll get a text-based table summarizing
 
 ```bash
 ------------------------------------|----------|----------|----------|----------|-------------------|
-File                                |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
-------------------------------------|----------|----------|----------|----------|-------------------|
-All files                           |     2.92 |      1.9 |     6.17 |     2.93 |                   |
- src                                |        0 |      100 |        0 |        0 |                   |
-  App.tsx                           |        0 |      100 |        0 |        0 |       37,49,50,54 |
- src/components                     |        0 |        0 |        0 |        0 |                   |
-  JobLog.tsx                        |        0 |        0 |        0 |        0 |... 68,77,78,80,87 |
-  MyJobs.tsx                        |        0 |        0 |        0 |        0 |... 07,716,720,729 |
-  UserJobs-container.tsx            |        0 |      100 |        0 |        0 |... 65,67,70,73,78 |
-  UserJobs.tsx                      |        0 |        0 |        0 |        0 |... 48,657,661,670 |
-  time.ts                           |        0 |        0 |        0 |        0 |... 45,147,153,155 |
- src/kbaseUI/components             |    28.57 |       25 |    42.86 |    28.57 |                   |
-  AppBase.tsx                       |        0 |        0 |        0 |        0 |    17,18,19,25,29 |
-  Loader.tsx                        |    44.44 |    33.33 |       75 |    44.44 |    18,19,25,44,46 |
- src/kbaseUI/components/auth        |    18.18 |       15 |    28.57 |    18.18 |                   |
-  loader.tsx                        |        0 |      100 |        0 |        0 | 23,24,30,32,35,38 |
-  view.tsx                          |    22.22 |       15 |    44.44 |    22.22 |... 07,109,115,121 |
- src/kbaseUI/components/integration |    28.57 |      100 |       25 |    28.57 |                   |
-  container.tsx                     |        0 |      100 |        0 |        0 |       35,36,43,45 |
-  loader.tsx                        |        0 |      100 |        0 |        0 |    12,41,42,48,50 |
-  view.tsx                          |       80 |      100 |       60 |       80 |                70 |
-------------------------------------|----------|----------|----------|----------|-------------------|
+| File                                 | % Stmts    | % Branch   | % Funcs    | % Lines    | Uncovered Line #s   |
+| ------------------------------------ | ---------- | ---------- | ---------- | ---------- | ------------------- |
+| All files                            | 2.92       | 1.9        | 6.17       | 2.93       |                     |
+| src                                  | 0          | 100        | 0          | 0          |                     |
+| App.tsx                              | 0          | 100        | 0          | 0          | 37,49,50,54         |
+| src/components                       | 0          | 0          | 0          | 0          |                     |
+| JobLog.tsx                           | 0          | 0          | 0          | 0          | ... 68,77,78,80,87  |
+| MyJobs.tsx                           | 0          | 0          | 0          | 0          | ... 07,716,720,729  |
+| UserJobs-container.tsx               | 0          | 100        | 0          | 0          | ... 65,67,70,73,78  |
+| UserJobs.tsx                         | 0          | 0          | 0          | 0          | ... 48,657,661,670  |
+| time.ts                              | 0          | 0          | 0          | 0          | ... 45,147,153,155  |
+| src/kbaseUI/components               | 28.57      | 25         | 42.86      | 28.57      |                     |
+| AppBase.tsx                          | 0          | 0          | 0          | 0          | 17,18,19,25,29      |
+| Loader.tsx                           | 44.44      | 33.33      | 75         | 44.44      | 18,19,25,44,46      |
+| src/kbaseUI/components/auth          | 18.18      | 15         | 28.57      | 18.18      |                     |
+| loader.tsx                           | 0          | 100        | 0          | 0          | 23,24,30,32,35,38   |
+| view.tsx                             | 22.22      | 15         | 44.44      | 22.22      | ... 07,109,115,121  |
+| src/kbaseUI/components/integration   | 28.57      | 100        | 25         | 28.57      |                     |
+| container.tsx                        | 0          | 100        | 0          | 0          | 35,36,43,45         |
+| loader.tsx                           | 0          | 100        | 0          | 0          | 12,41,42,48,50      |
+| view.tsx                             | 80         | 100        | 60         | 80         | 70                  |
+| ------------------------------------ | ---------- | ---------- | ---------- | ---------- | ------------------- |
 ```
 
 The practice of achieving a given code coverage is to iteratively add tests and inspect the coverage results. We have a long way to go, clearly, at just under 3% code coverage!!

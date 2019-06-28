@@ -1,6 +1,3 @@
----
----
-
 # Step 7. Add Ant Design
 
 Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the base component library.

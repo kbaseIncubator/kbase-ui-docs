@@ -1,6 +1,3 @@
----
----
-
 # Step 10: Add Documentation
 
 Documentation other than the README.md resides in a top level `/docs` folder and is build and deployed automatically by Github through Github Pages.
@@ -14,16 +11,12 @@ Documentation other than the README.md resides in a top level `/docs` folder and
 2. Add a new file `index.md` in the `docs` directory, with the following content:
 
     ```markdown
-    ---
-    ---
     # My Great Plugin
     ```
 
 3. Add a new file `overview.md` in the `docs` directory, with the following content:
 
     ```markdown
-    ---
-    ---
     # Overview
     ```
 

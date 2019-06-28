@@ -1,6 +1,3 @@
----
----
-
 # Step 4. Get the plugin to say "Hello"
 
 Now we need to add enough structure to the plugin to allow it to say "Hello". After that we'll wire it up to kbase-ui so we can see it say "Hello" within the ui.
