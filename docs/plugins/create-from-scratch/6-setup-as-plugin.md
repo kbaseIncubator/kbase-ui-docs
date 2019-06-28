@@ -203,28 +203,6 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
 
     Now we need to add the files kbase-ui expects in order to load this web app as a plugin.
 
-    - Add plugin config directory:
-
-      ```text
-      src
-        plugin
-          iframe_root
-      ```
-
-      ```bash
-      mkdir -p plugin/iframe_root
-      ```
-
-    - Add a `README.md` file to this folder:
-
-      ```markdown
-      # iframe_root
-
-      This is where the built app will be installed for the plugin.
-      ```
-
-      > The content is not important; this file serves as a placeholder so that the `iframe_root` directory is retained by git (this is ensured in `.gitignore`)
-
     - Add the plugin config file `config.yml` in `plugin`:
 
       ```yaml
@@ -270,8 +248,8 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - Create a `install-plugin.bash` file in the `scripts` directory with the following content:
 
       ```bash
-      rm -rf ../plugin/iframe_root/*
-      cp -pr build/* ../plugin/iframe_root
+      rm -rf ../plugin/iframe_root
+      cp -pr build ../plugin/iframe_root
       ```
 
     - Add a this as a npm script `install-plugin` to `package.json` in `react-app`:

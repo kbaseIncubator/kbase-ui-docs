@@ -25,11 +25,8 @@ KBase recommends and supports Visual Studio Code for front end development.
     .DS_Store
     node_modules/
 
-    # The build plugin goes here. We don't want to check it it from 
-    # a developer session, but we do like to keep the directory in the repo,
-    # thus the placeholder README file.
-    /plugin/iframe_root/*
-    !/plugin/iframe_root/README.md 
+    # The built plugin goes here.
+    /plugin/iframe_root/
 
     # created by npm if install with --no-cache option
     false
