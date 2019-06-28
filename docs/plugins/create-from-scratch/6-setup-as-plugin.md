@@ -17,7 +17,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
 
     What we can do is set the homepage property to `./`.
 
-    Edit the file `src/react-app/project.json` to add the top level property:
+    Edit the file `react-app/package.json` to add the top level property:
 
     ```json
     "homepage": "./",
@@ -63,7 +63,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       > Note that as this documentation is being written, this dependency expression actually looks like the following, and does not need editing.
 
       ```json
-      "@kbase/ui-lib": "0.1.0-alpha.3",
+      "@kbase/ui-lib": "0.1.0-alpha.22",
       ```
 
 6. Install redux:
