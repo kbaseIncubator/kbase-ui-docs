@@ -1,6 +1,3 @@
----
----
-
 # Step 5. A Quick Refactor
 
 In this step we refactor the App component to align with the uniform we we prefer to create React components.

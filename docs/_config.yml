@@ -1,5 +1,6 @@
 title: KBase UI Docs
-# markdown: kramdown
+plugins:
+  - jekyll-redirect-from
 remote_theme: kbaseIncubator/kbase-github-pages-theme
 search_enabled: false
 aux_links: 
@@ -9,13 +10,12 @@ aux_links:
         - "//kbase.us/about"
 navigation:
   menu:
-    # - label: Home 
-    #   slug: index
-    - label: Ant Design
-      slug: antd
+    - label: Overview
+    - label: Getting Started
+      slug: getting-started
       menu:
-        - label: Theming
-        - label: Tips
+          - label: Prerequisites
+          - label: Quick Start
     - label: Development
       menu:
         - label: Prerequisites
@@ -28,38 +28,39 @@ navigation:
         - label: QA
         - label: Team
         - label: Deployment
-    - label: Plugins
-      menu: 
-        - label: Architecture
-        - label: Create from Scratch
-          menu:
-              - label: 1. Setup
-              - label: 2. Create Repos
-              - label: 3. Dev Tools
-              - label: 4. Say Hello
-              - label: 5. A Quick Refactor
-              - label: 6. Setup as Plugin
-              - label: 7. Add Ant Design
-              - label: 8. Add to KBase UI 
-              - label: 9. Add Testing
-              - label: 10. Add Documentation
-              - label: 11. Fin
-        - label: Create from Template
-    - label: Documentation
-      menu:
-        - label: Overview
-        - label: Using Github Pages
-        - label: Using TSDoc
-        - label: Using TypeDoc
-    - label: Getting Started
-      slug: getting-started
-      menu:
-          - label: Prerequisites
-          - label: Quick Start
-    - label: Guides
     - label: Tools
       menu: 
-        - label: Playbook
+        - label: Storybook
+        - label: Visual Studio Code 
+    - label: Guides
+      menu:
+        - label: Plugins
+          menu:
+            - label: Create a Plugin
+              menu:
+                  - label: 1. Setup
+                  - label: 2. Create Repos
+                  - label: 3. Dev Tools
+                  - label: 4. Say Hello
+                  - label: 5. A Quick Refactor
+                  - label: 6. Setup as Plugin
+                  - label: 7. Add Ant Design
+                  - label: 8. Add to KBase UI 
+                  - label: 9. Add Testing
+                  - label: 10. Add Documentation
+                  - label: 11. Fin
+        - label: Documentation
+          menu:
+            - label: Overview
+            - label: Using Github Pages
+            - label: Using TSDoc
+            - label: Using TypeDoc
+        - label: Ant Design
+          slug: antd
+          menu:
+            - label: Theming
+            - label: Tips
+   
 # markdown: kramdown
 # kramdown:
 #     highlighter: rouge

@@ -1,6 +1,3 @@
----
----
-
 # Step 3. Developer Tools
 
 

@@ -1,27 +1,27 @@
 ---
 ---
 
-# Playbook
+# Storybook
 
 ## Background
 
-Playbook is a browser-based documentation and prototyping tool...
+Storybook is a browser-based documentation and prototyping tool...
 
-The KBase Ant Design Playbook is a standalone CRATS project...
+The KBase Ant Design Storybook is a standalone CRATS project...
 
 ## Installation
 
 ## Original Setup Notes
 
-(in this section we document the steps to create the original base and playbook project from scratch... may be useful for creating other playbooks. E.g. for kbase custom components, or special use cases.)
+(in this section we document the steps to create the original base and storybook project from scratch... may be useful for creating other storybooks. E.g. for kbase custom components, or special use cases.)
 
 ### Create CRATS project
 
 Create project directory:
 
 ```bash
-mkdir kbase-ui-playbook
-cd kbase-ui-playbook
+mkdir kbase-ui-storybook
+cd kbase-ui-storybook
 git init
 ```
 
@@ -109,7 +109,7 @@ npm install --save-dev @storybook/addon-actions @storybook/addon-links @storyboo
 
 #### Configure addons
 
-Add a file to `.playbook` called `adding.js`:
+Add a file to `.storybook` called `adding.js`:
 
 ```bash
 import '@storybook/addon-actions/register';

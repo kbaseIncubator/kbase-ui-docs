@@ -1,4 +1,0 @@
----
----
-
-# Create from a Template

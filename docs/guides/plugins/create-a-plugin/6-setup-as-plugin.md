@@ -1,6 +1,3 @@
----
----
-
 # Step 6. Setup as Plugin
 
 So far we have managed to create a simple CRA-based web app, with a few tweaks. Now we will install the machinery needed to run this web app as a kbase-ui plugin.
