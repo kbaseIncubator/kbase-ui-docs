@@ -162,13 +162,13 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
         render() {
           return (
             <Provider store={store}>
-              <div className="App">
-                <DevWrapper>
-                  <AppBase>
+              <DevWrapper>
+                <AppBase>
+                  <div className="App">
                     <p>Hello!</p>
-                  </AppBase>
-                </DevWrapper>
-              </div>
+                  </div>
+                </AppBase>
+              </DevWrapper>
             </Provider>
           );
         }
@@ -179,6 +179,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       - we added two new imports for `Provider` and `createReduxStore`
       - we used `createReduxStore` to create our initial redux store, which is stored in the top level App component's namespace.
       - we wrapped our app content in a `Provider` component, which ensures that our app has access to redux.
+      - we added developer and kbase integration support with `DevWrapper` and `AppBase` which were imported and then added as wrapper components for
 
 9. Test it
 
