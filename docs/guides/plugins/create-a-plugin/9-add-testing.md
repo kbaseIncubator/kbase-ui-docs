@@ -74,11 +74,61 @@ Unit testing is built into CRATS workflow with jest and support libraries. To ma
 
     > Note that the `--watchAll=false` option, which disables the auto-running of tests when source code changes, is currently required due to a bug recently introduced to jest. Running coverage tests with auto running is perhaps not too useful -- when refining coverage tests. Rather, reloading coverage reports per file is more useful.
 
-6. An html report is also produced in `react-app/coverage/lcov-report/index.html`
+6. An html report is also produced in `react-app/coverage/lcov-report/index.html`. This report reveals, for each tested file, which lines of code have not been tested. This is critical for identifying untested code, and creating new tests to cover it.
 
 ## Integration Tests
 
-[ to be written ]
+Whereas unit testing provides fine-grained broad coverage of the codebase, integration tests are fewer in number but exercise through features in the context of the final web app. This results in deep, vertical tests. Integration tests are also often applied to actual deployment environmentss.
+
+Each plugin as well as kbase-ui itself provide integration tests. During a kbase-ui build, all integration tests are gathered together and may be run in one batch.
+
+Integration tests themselves are written as test scripts as a yaml file.
+
+This document will not describe in detail the integration test system, see ____..
+
+1. Create a `test` folder within the `plugin` folder.
+
+    ```bash
+    mkdir plugin/test
+    ```
+
+2. Add a simple integration test script file `first.yaml`:
+
+    ```yaml
+    ---
+    description: Show hello message
+    specs:
+       - description: the hello message should appear
+           baseSelector: []
+           tasks:
+            # run subtask "login" which injects a token (from config in kbase-ui)
+            - subtask: login
+            # The "navigate" action will trigger a ui route request to the given path
+            - action: navigate
+                path: example-hello
+            # The subtask "plugin" will navigate to the plugin iframe.
+            - subtask: plugin
+            # Now we get to the actual testable components.
+            # Above, a failure will indeed fail the test, but below we are actually
+            # poking at the plugin.
+            - wait: forText
+                selector:
+                  - type: plugin
+                      value: my-plugin
+                  - type: field
+                      value: SOME_FIELD_VALUE
+                text: SOME_TEXT_VALUE
+    ```
+
+3. Commit and push up the changes
+
+    Since the integration tests are made available to kbase-ui during the build process, we need to ensure that the plugins repo has been updated.
+
+4. Make a fresh kbase-ui build
+
+5. Make a fresh local kbase-ui build
+
+6. Run integration tests
 
 ## Next Step
 

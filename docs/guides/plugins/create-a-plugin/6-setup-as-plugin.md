@@ -145,10 +145,11 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
 
     - update `App.tsx` so that it looks like this:
 
-      ```typescript
+      ```tsx
       import React from "react";
       import { Provider } from "react-redux";
       import { createReduxStore } from "./redux/store";
+      import { AppBase, DevWrapper } from "@kbase/ui-lib";
       import "./App.css";
 
       const store = createReduxStore();
@@ -162,7 +163,11 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
           return (
             <Provider store={store}>
               <div className="App">
-                <p>Hello!</p>
+                <DevWrapper>
+                  <AppBase>
+                    <p>Hello!</p>
+                  </AppBase>
+                </DevWrapper>
               </div>
             </Provider>
           );
