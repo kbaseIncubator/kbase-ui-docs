@@ -29,8 +29,6 @@ You can view it locally as well:
     bundle install
     ```
 
-
-
 - start the Jekyll server
 
     ```bash

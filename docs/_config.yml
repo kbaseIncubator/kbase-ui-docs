@@ -11,6 +11,14 @@ aux_links:
 navigation:
   menu:
     - label: Overview
+      menu:
+        - label: History
+        - label: Current Interfaces
+        - label: Evolution
+        - label: Layout
+        - label: Architecture
+        - label: Development
+        - label: Deployment
     - label: Getting Started
       slug: getting-started
       menu:

@@ -23,6 +23,7 @@ You will need to ensure that you have a basic set of the following tools on your
 | git    | \*      | the source revision management tool with integration into github   |
 | make   | >= 3.8  | any relatively recent make should work                             |
 | node   | >= 8    | any recent version should work                                     |
+| yarn   | latest  | replacement for npm; faster and possibly more reliable             |
 
 > \* we haven't documented any substantial differences between these tools regarding the kbase-ui development process. However, it is best to keep them always at the most recent version by updating your tool stack periodically.
 
@@ -50,7 +51,7 @@ Download and follow the instructions at [https://www.macports.org/install.php](h
 
 ### brew
 
-[ to be done ]
+Install brew according to [their directions](https://brew.sh).
 
 ## make
 
@@ -117,3 +118,13 @@ sudo apt-get install git
 Distribution of Docker changes from time to time. Currently it is best to consule the [Docker Store](https://store.docker.com/search?type=edition&offering=community), which should list a distribution for macOS, Windows, and various Linux distributions.
 
 That failing, just explore [Docker](https://docker.com).
+
+## yarn
+
+Yarn is a package manager for the Javascript community. It is compatible with npm, but has some improvements in performance, and lacks some bugs.
+
+### MacOS
+
+```bash
+brew install yarn
+```

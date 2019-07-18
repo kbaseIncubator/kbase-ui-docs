@@ -69,10 +69,10 @@ Unit testing is built into CRATS workflow with jest and support libraries. To ma
 5. Test coverage is run similarly:
 
     ```bash
-    npm run test -- --coverage --watchAll=false
+    npm run test -- --coverage 
     ```
 
-    > Note that the `--watchAll=false` option, which disables the auto-running of tests when source code changes, is currently required due to a bug recently introduced to jest. Running coverage tests with auto running is perhaps not too useful -- when refining coverage tests. Rather, reloading coverage reports per file is more useful.
+    > Note that the `--watchAll=false` option, which was previously advised, is no longer necessary, due to fixes in the `jest` library.
 
 6. An html report is also produced in `react-app/coverage/lcov-report/index.html`. This report reveals, for each tested file, which lines of code have not been tested. This is critical for identifying untested code, and creating new tests to cover it.
 

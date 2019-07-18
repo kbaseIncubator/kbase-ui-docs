@@ -1,8 +1,7 @@
-GIT
-  remote: https://github.com/kbaseIncubator/kbase-github-pages-theme
-  revision: e254188c98bcc3cd83b8fb09a60f53660be178a0
+PATH
+  remote: ../../kbase-github-pages-theme
   specs:
-    kbase-github-pages-theme (0.2.8)
+    kbase-github-pages-theme (0.3.0)
       jekyll (~> 3.8.5)
       jekyll-seo-tag (~> 2.0)
       rake (~> 12.3.1)
