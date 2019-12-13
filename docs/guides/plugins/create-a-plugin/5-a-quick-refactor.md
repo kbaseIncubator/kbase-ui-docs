@@ -1,8 +1,8 @@
 # Step 5. A Quick Refactor
 
-In this step we refactor the App component to align with the uniform we we prefer to create React components.
+In this step we refactor the App component to align with the uniform way we prefer to create React components.
 
-The `App` component installed by the Create React App (CRA) tool follows the functional model of component programming. This approach is gaining popularity, and in recent (as of June 2019) releases the React team is promoting it as the default form. However, there is some debate about this in the React community, and we are not, as of now, adopting this pattern.
+The `App` component installed by the Create React App (CRA) tool follows the functional model of component programming. This approach is gaining popularity, and in recent releases (as of June 2019) the React team is promoting it as the default form. However, there is some debate about this in the React community, and we are not, as of now, adopting this pattern.
 
 Rather, we follow the class-based component programming model.
 
@@ -36,25 +36,25 @@ So, let's refactor `App.tsx`:
 3. With:
 
    ```typescript
-   interface AppProps {}
+    export interface AppProps { }
 
-   interface AppState {}
+    interface AppState { }
 
-   export default class App<AppProps, AppState> extends React.Component {
-     render() {
-       return (
-         <div className="App">
-           <p>Hello!</p>
-         </div>
-       );
-     }
-   }
+    export default class App<AppProps, AppState> extends React.Component {
+        render() {
+            return (
+                <div className="App">
+                    <p>Hello!</p>
+                </div>
+            );
+        }
+    }
    ```
 
 4. Re-run test
 
    ```bash
-   npm run test
+   yarn test
    ```
 
 ## Next Step

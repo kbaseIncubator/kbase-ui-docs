@@ -23,6 +23,7 @@ You will need to ensure that you have a basic set of the following tools on your
 | git    | \*      | the source revision management tool with integration into github   |
 | make   | >= 3.8  | any relatively recent make should work                             |
 | node   | >= 8    | any recent version should work                                     |
+| python | 2.x     | node _may_ require python for building certain modules             |
 
 > \* we haven't documented any substantial differences between these tools regarding the kbase-ui development process. However, it is best to keep them always at the most recent version by updating your tool stack periodically.
 
@@ -117,3 +118,19 @@ sudo apt-get install git
 Distribution of Docker changes from time to time. Currently it is best to consule the [Docker Store](https://store.docker.com/search?type=edition&offering=community), which should list a distribution for macOS, Windows, and various Linux distributions.
 
 That failing, just explore [Docker](https://docker.com).
+
+## Python 2
+
+Python 2 is not used directly by kbase-ui. However, some node packages build executable libraries from c or c++ and use python 2 as part of their build process.
+
+### macOS
+
+Python 2 is built into every release of macOS X.
+
+### Linux
+
+[ to be done ]
+
+### Windows
+
+[ to be done ]

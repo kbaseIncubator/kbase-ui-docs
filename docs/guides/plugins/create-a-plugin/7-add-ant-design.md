@@ -5,7 +5,7 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
 1. Add Component Library Support
 
    ```bash
-   npm install antd @craco/craco craco-antd nodemon --save
+   yarn add antd @craco/craco craco-antd nodemon
    ```
 
    > Don't forget to clean up `package.json`.
@@ -20,7 +20,9 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
    "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "eject": "react-scripts eject"
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "install-plugin": "bash scripts/install-plugin.bash"
    },
    ```
 
@@ -30,7 +32,8 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
    "scripts": {
         "start": "nodemon -w ./craco.config.js -w ./src/custom/style/antd/theme.less --exec 'craco start'",
         "build": "craco build",
-        "test": "react-scripts test"
+        "test": "react-scripts test",
+        "install-plugin": "bash scripts/install-plugin.bash"
    },
    ```
 
@@ -43,97 +46,61 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
    - Add the `craco` customization file `craco.config.js` in the top level `react-app` directory:
 
    ```typescript
-   const path = require("path");
-   const CracoAntDesignPlugin = require("craco-antd");
+   const path = require('path');
+    const CracoAntDesignPlugin = require('craco-antd');
 
-   module.exports = {
-     jest: {
-       babel: {
-         addPresets: true,
-         addPlugins: true,
-         configure: (jestConfig, { env, paths, resolve, rootDir }) => {
-           jestConfig.transformIgnorePatterns = ["[/\\\\]node_modules[/\\\\](?!kbase-ui-lib|antd/).+\\.js$"];
-           jestConfig.rootDir = "./src";
+    const esModules = ['kbase-ui-lib'].join('|');
 
-           return jestConfig;
-         }
-       }
-     },
-     plugins: [
-       {
-         plugin: CracoAntDesignPlugin,
-         options: {
-           customizeThemeLessPath: path.join(__dirname, "src/custom/style/antd/theme.less")
-         }
-       }
-     ]
-   };
+    module.exports = {
+        jest: {
+            babel: {
+                addPresets: true,
+                addPlugins: true,
+                configure: (jestConfig, { env, paths, resolve, rootDir }) => {
+                    // jestConfig.transformIgnorePatterns = [`<rootDir>/node_modules/(?!${esModules})`];
+                    jestConfig.transformIgnorePatterns = ['[/\\\\]node_modules[/\\\\](?!kbase-ui-lib|kbase-ui-components|antd/).+\\.js$'];
+                    jestConfig.rootDir = './src';
+                    jestConfig.moduleFileExtensions = ['ts', 'tsx', 'json', 'js'];
+
+                    return jestConfig;
+                }
+            }
+        },
+        // jest: {
+        //     configure: {
+        //         globals: {
+        //             "CONFIG": true
+        //         }
+        //     }
+        // },
+        plugins: [
+            {
+                plugin: CracoAntDesignPlugin,
+                options: {
+                    customizeThemeLessPath: path.join(__dirname, 'node_modules/@kbase/ui-components/lib/custom/antd/theme.less')
+                }
+            }
+        ],
+        webpack: {
+            alias: {
+                react: path.resolve('./node_modules/react'),
+                redux: path.resolve('./node_modules/redux'),
+                'react-redux': path.resolve('./node_modules/react-redux')
+            }
+        },
+        devServer: {
+            watchOptions: {
+                poll: 1000
+            }
+        }
+    };
    ```
-
-   - Add the antd customization less file in `theme.less` into the new directory `react-app/custom/antd`:
-
-   > Sorry, github pages uses [Rouge](http://rouge.jneen.net/) for syntax highlighting, and Rouge does not currently support less stylesheets, thus the lack of styling in the code sample below :(
-
-   ```less
-   /**
-    * Primary antd colors. 
-    * Blue, green, gold are derived from the kbase logo colors.
-    */
-   @blue-kbase: rgb(22, 99, 186);
-   @green-kbase: rgb(45, 135, 48);
-   @gold-kbase: rgb(251, 116, 7);
-   @red-kbase: rgb(163, 36, 36);
-   @font-size-base-kbase: 16px;
-   @font-family-kbase: "Oxygen";
-
-   // antd theme customization
-   @primary-color: @blue-kbase;
-   // @primary-color: @debug-kbase;
-
-   @info-color: @blue-kbase;
-   @success-color: @green-kbase;
-   @processing-color: @blue-kbase;
-   @error-color: @red-kbase;
-   @highlight-color: @red-kbase;
-   @warning-color: @gold-kbase;
-   @normal-color: #d9d9d9;
-
-   /**
-    * Use KBase fonts. 
-    * Note: Currently the kbase ui uses oxygen for most text, and roboto for
-    * headlines.
-    */
-   @font-family: @font-family-kbase;
-   @code-family: monospace;
-
-   @text-color: fade(@black, 65%);
-   @text-color-secondary: fade(@black, 45%);
-   @text-color-warning: @gold-7;
-   @text-color-danger: @red-7;
-   @text-color-inverse: @white;
-
-   @font-size-base: @font-size-base-kbase;
-   @font-size-lg: @font-size-base + 2px;
-   @font-size-sm: 12px;
-   @heading-1-size: ceil(@font-size-base * 2.71);
-   @heading-2-size: ceil(@font-size-base * 2.14);
-   @heading-3-size: ceil(@font-size-base * 1.71);
-   @heading-4-size: ceil(@font-size-base * 1.42);
-
-   // Layout
-   @layout-body-background: #f0f2f5;
-   @layout-header-background: #001529;
-   ```
-
-   > Note: When we have officially arrived at our antd theme, we'll just install it here.
-
-   > Remember: Ideally ALL of the setup described here will be automated by a script.
 
 4. Make sure it is still working
 
    ```bash
-   npm run test
-   npm run start
+   yarn test
+   yarn start
    ```
 
 5. Add a component to see ant design work
@@ -154,7 +121,7 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
 
    - Save the file
 
-   - If `npm run start` is not running, run it.
+   - If `yarn start` is not running, run it.
 
    - You should see the button render in the browser
 
