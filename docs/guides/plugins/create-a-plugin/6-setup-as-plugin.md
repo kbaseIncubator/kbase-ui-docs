@@ -30,17 +30,27 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     "proxy": "https://ci.kbase.us"
     ```
 
+    You may proxy this development server to any KBase environment, such as production. However, in normal practice we proxy against CI in order to avoid potential disruption those environments.
+
     > TODO: We should probably support proxying against any kbase deployment without having to tweak package.json, which might be accidentally checked in with a dev change.
+
+    > TODO: add chapter on advanced proxying...
 
 4. Set up the KBase integration dependency
 
-    Integration into kbase-ui depends on a KBase npm package called _kbase-ui-lib_.
+    Integration into kbase-ui depends on two KBase npm packages.
 
-    - Install the _kbase-ui-lib_ package.
+    - Install the _kbase-ui-lib_ package. This package contains general support for working with KBase, including service libraries.
 
       ```bash
-      npm install --save @kbase/ui-lib
+      yarn add @kbase/ui-lib
       ```
+
+    - Install the _kbase-ui-components_ package. This package contains component-specific support, plugin component support, as well as custom KBase components.
+
+        ```bash
+        yarn add @kbase/ui-components
+        ```
 
 5. Fix new dependency
 
@@ -60,7 +70,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       > Note that as this documentation is being written, this dependency expression actually looks like the following, and does not need editing.
 
       ```json
-      "@kbase/ui-lib": "0.1.0-alpha.22",
+      "@kbase/ui-lib": "0.1.0-alpha.50",
       ```
 
 6. Install redux:
@@ -70,7 +80,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - install redux packages
 
       ```bash
-      npm install --save redux react-redux @types/react-redux redux-thunk
+      yarn add redux react-redux @types/react-redux redux-thunk
       ```
 
     - fix up the dependencies to remove the `^` as described above.
@@ -101,7 +111,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - within `redux`, create `store.ts` with the following code.
 
       ```typescript
-      import { BaseStoreState, makeBaseStoreState } from "@kbase/ui-lib";
+      import { BaseStoreState, makeBaseStoreState } from "@kbase/ui-components";
       import { createStore, compose, applyMiddleware } from "redux";
       import thunk from "redux-thunk";
       import reducer from "./reducers";
@@ -123,10 +133,9 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - within `redux`, create `reducers.ts` with the following code
 
       ```typescript
-      import { Action, Reducer } from "redux";
-      import { baseReducer } from "@kbase/ui-lib";
-      import { BaseStoreState } from "@kbase/ui-lib";
+      import { baseReducer, BaseStoreState } from "@kbase/ui-components";
       import { StoreState } from "./store";
+      import { Action, Reducer } from "redux";
 
       const reducer: Reducer<StoreState | undefined, Action> = (state: StoreState | undefined, action: Action) => {
         const baseState = baseReducer(state as BaseStoreState, action);
@@ -149,7 +158,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       import React from "react";
       import { Provider } from "react-redux";
       import { createReduxStore } from "./redux/store";
-      import { AppBase, DevWrapper } from "@kbase/ui-lib";
+      import { AppBase } from "@kbase/ui-lib";
       import "./App.css";
 
       const store = createReduxStore();
@@ -162,13 +171,11 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
         render() {
           return (
             <Provider store={store}>
-              <DevWrapper>
                 <AppBase>
                   <div className="App">
                     <p>Hello!</p>
                   </div>
                 </AppBase>
-              </DevWrapper>
             </Provider>
           );
         }
@@ -179,16 +186,18 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       - we added two new imports for `Provider` and `createReduxStore`
       - we used `createReduxStore` to create our initial redux store, which is stored in the top level App component's namespace.
       - we wrapped our app content in a `Provider` component, which ensures that our app has access to redux.
-      - we added developer and kbase integration support with `DevWrapper` and `AppBase` which were imported and then added as wrapper components for
+      - we added developer and kbase integration support with `AppBase` which were imported and then added as wrapper components around our app.
 
 9. Test it
 
     After a major set of changes like this, it is prudent to run the tests, and to exercise the web app, to ensure we didn't introduce bugs.
 
     ```bash
-    npm run test
-    npm run start
+    yarn test
+    yarn start
     ```
+
+    The first thing you should notice is that the app now takes a log longer to compile. We've added a bunch more code, and Typescript compilation and the bundling process can slow down quite a bit when more code is added.
 
     The first thing you should notice is that instead of "Hello" and "Hi!", you now are confronted with a dialog box
 
@@ -206,7 +215,15 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
 
     Now we need to add the files kbase-ui expects in order to load this web app as a plugin.
 
-    - Add the plugin config file `config.yml` in `plugin`:
+    - Add the plugin config file `config.yml` in the `plugin` directory:
+
+      At the top level of the project, create the `plugin` directory:
+
+      ```bash
+      mkdir plugin
+      ```
+
+      Then add the plugin configuration file `config.yml`:
 
       ```yaml
       ## Plugin Configuration
@@ -219,10 +236,9 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       install:
         routes:
           - path: ["example-hello"]
-            queryParams:
-              path: { literal: ["main"] }
+            view: main
             widget: kb_iframe_loader
-            authorization: true 
+            authorization: true
             # TODO: get rid of this!!
             params:
               plugin: example-hello
@@ -259,11 +275,12 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
   
       ```json
       "scripts": {
-          "start": "nodemon -w ./craco.config.js -w ./src/custom/style/antd/theme.less --exec 'craco start'",
-          "build": "craco build",
-          "test": "react-scripts test",
-          "install-plugin": "bash scripts/install-plugin.bash"
-        }
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "install-plugin": "bash scripts/install-plugin.bash"
+      }
       ```
 
 12. Add new top level support:
@@ -352,7 +369,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
         },
         "scripts": {
           "test": "echo \"Error: no test specified\" && exit 1",
-          "postinstall": "bash scripts/postinstall.bash"
+          "build-plugin": "bash scripts/build-plugin.bash"
         },
         "repository": {
           "type": "git",
@@ -373,26 +390,26 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       mkdir scripts
       ```
 
-    - Create the `postinstall.bash` script in the `scripts` directory:
+    - Create the `build-plugin.bash` script in the `scripts` directory:
 
       ```bash
-      echo "Running plugin post install script"
+      echo "Running plugin build script"
       cd react-app && \
-      npm install && \
+      yarn install --no-lockfile --cache-folder=".yarn-cache" && \
       echo "✓ dependencies installed successfully" && \
-      npm run build && \
+      yarn build && \
       echo "✓ built successfully" && \
-      npm run test -- --watchAll=false && \
+      yarn test --watchAll=false && \
       echo "✓ tests run successfully" && \
-      npm run install-plugin && \
+      yarn install-plugin && \
       echo "✓ plugin setup successfully" && \
       echo "✓ plugin installed successfully"
       ```
 
-    - Try out the script
+    - Try out the script from the root of the project:
 
       ```bash
-      npm run postinstall
+      yarn build-plugin
       ```
 
 13. Push up plugin repo

@@ -23,7 +23,10 @@ In general, new repositories should be created at _kbaseIncubator_ in their earl
      - The dash `-` should be used to separate the words of a compound word (rather than running them together, or using camel case).
      - A digit (0-9) may be used as well, sparingly, e.g. to distinguish a major new version of a plugin.
      - Try to use full words, not initials or other contracted forms.
+     - If the plugin name contains multiple words, separate them with a dash.
+       - e.g. the "Job Browser" is `kbase-ui-plugin-job-browser`.
      - See [existing plugin repos](https://github.com/kbase?utf8=✓&q=kbase-ui-plugin-) for examples
+   - Provide a brief description in the Description (optional) field.
    - Check the option **Initialize this repository with a README**. This will enable you to immediately fork the repo, rather than have to push up initial content first.
 
 4. Click the Create repository button ![Create repository button](./images/create-repository-button.png)
@@ -55,6 +58,26 @@ Now we are ready to fork the repo to your local machine. With the Pull Request w
 
   ```bash
   git clone ssh://git@github.com/{YOUR_ACCOUNT}/{REPO_NAME}
+  ```
+
+#### Working with others
+
+If others will be working on this repo at the same time, or the work session will be extended (days or weeks), it is better to clone from the "origin" (kbaseIncubator) and "your" repos. You will still push changes to your repo, but will be ready to sync up from the origin at any time.
+
+In addition to the above:
+
+- connect to the upstream repo:
+
+  ```bash
+  git remote add upstream https://github.com/kbaseIncubator/{REPO_NAME}
+  ```
+
+- And protect it from direct pushes:
+
+  or if you use ssh keys for github auth:
+
+  ```bash
+  git remote set-url --push upstream nopush
   ```
 
 ## Next Steps

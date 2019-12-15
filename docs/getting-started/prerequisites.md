@@ -3,7 +3,7 @@
 
 # Prerequisites
 
-The kbase-ui is a web app, composed of html, javascript, css, data files, image files, and many other assets. As a web app it can be used behind just about any type of web server. In order to use the web app, it must operate on a supported KBase host. Practically this means that it should operate behind a proxy server which itself operates on the KBase host. (These hosts are https://X.kbase.host, where X is ci, next, appdev, and narrative).
+`kbase-ui` is a web app, composed of html, javascript, css, data files, image files, and many other assets. As a web app it can be used behind just about any type of web server. In order to use the web app, it must operate on a supported KBase host. Practically this means that it should operate behind a proxy server which itself operates on the KBase host. (These hosts are https://X.kbase.host, where X is ci, next, appdev, and narrative).
 
 In deployments, KBase uses an nginx proxy front end and rancher to orchestrate kbase-ui and other services which operate to form a connected set of services.
 
@@ -23,6 +23,9 @@ You will need to ensure that you have a basic set of the following tools on your
 | git    | \*      | the source revision management tool with integration into github   |
 | make   | >= 3.8  | any relatively recent make should work                             |
 | node   | >= 8    | any recent version should work                                     |
+| python | 2.x     | node _may_ require python for building certain modules             |
+| yarn   | latest  | replacement for npm; faster and possibly more reliable             |
+
 
 > \* we haven't documented any substantial differences between these tools regarding the kbase-ui development process. However, it is best to keep them always at the most recent version by updating your tool stack periodically.
 
@@ -50,7 +53,7 @@ Download and follow the instructions at [https://www.macports.org/install.php](h
 
 ### brew
 
-[ to be done ]
+Install brew according to [their directions](https://brew.sh).
 
 ## make
 
@@ -117,3 +120,30 @@ sudo apt-get install git
 Distribution of Docker changes from time to time. Currently it is best to consule the [Docker Store](https://store.docker.com/search?type=edition&offering=community), which should list a distribution for macOS, Windows, and various Linux distributions.
 
 That failing, just explore [Docker](https://docker.com).
+
+
+## Python 2
+
+Python 2 is not used directly by kbase-ui. However, some node packages build executable libraries from c or c++ and use python 2 as part of their build process.
+
+### macOS
+
+Python 2 is built into every release of macOS X.
+
+### Linux
+
+[ to be done ]
+
+### Windows
+
+[ to be done ]
+
+## yarn
+
+Yarn is a package manager for the Javascript community. It is compatible with npm, but has some improvements in performance, and lacks some bugs.
+
+### MacOS
+
+```bash
+brew install yarn
+```

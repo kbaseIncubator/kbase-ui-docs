@@ -7,7 +7,7 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
 2. Create a react app with typescript support
 
    ```bash
-   npx create-react-app react-app --typescript
+   yarn create react-app react-app --typescript
    ```
 
 3. Ensure it is working
@@ -15,17 +15,17 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
 
    ```bash
    cd react-app
-   npm run start
+   yarn run start
    ```
 
    A browser should launch, inside of which you should see a slowly spinning React logo.
 
-   Stop the npm run start task by hitting **Control-C** in the terminal.
+   Stop the `yarn run start` task by hitting **Control-C** in the terminal.
 
 4. Next let's do a static build to ensure that it is working:
 
    ```bash
-   npm run build
+   yarn build
    ```
 
    A static, or production, build will place all the files needed to run the web app in the `build` directory.
@@ -35,6 +35,14 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
 5. Make it say "Hello"
 
    Now we take control of the app, removing the sample content that the CRA script creates.
+
+   - Load the development server again:
+
+    ```bash
+    yarn start
+    ```
+
+    THe browser should pop up again showing the initial state of the app with the spinning React logo.
 
    - Edit `react-app/src/App.tsx`
 
@@ -56,18 +64,18 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
 
    - Remove the file `react-app/logo.svg`
 
-   - Rebuild the app and review in the browser. It should now say "Hello!"
+   - When you visit the the browser window,  should now say "Hello!"
 
      ```bash
-     npm run start
+     yarn run start
      ```
 
 6. A quick test
 
-   The app has a single unit test preconfigured for the App component. Let's run the test script to confirm that the test passes.
+   The app has a single unit test pre-configured for the App component. Let's run the test script to confirm that the test passes.
 
    ```bash
-   npm run test
+   yarn test
    ```
 
 ## Next Step
