@@ -15,12 +15,12 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
 
    ```bash
    cd react-app
-   yarn start
+   yarn run start
    ```
 
    A browser should launch, inside of which you should see a slowly spinning React logo.
 
-   Stop the npm run start task by hitting **Control-C** in the terminal.
+   Stop the `yarn run start` task by hitting **Control-C** in the terminal.
 
 4. Next let's do a static build to ensure that it is working:
 
@@ -66,7 +66,9 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
 
    - When you visit the the browser window,  should now say "Hello!"
 
-     
+     ```bash
+     yarn run start
+     ```
 
 6. A quick test
 

@@ -45,8 +45,8 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
 
    - Add the `craco` customization file `craco.config.js` in the top level `react-app` directory:
 
-   ```typescript
-   const path = require('path');
+    ```typescript
+    const path = require('path');
     const CracoAntDesignPlugin = require('craco-antd');
 
     const esModules = ['kbase-ui-lib'].join('|');
@@ -94,7 +94,7 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
             }
         }
     };
-   ```
+    ```
 
 4. Make sure it is still working
 

@@ -3,19 +3,28 @@ plugins:
   - jekyll-redirect-from
 remote_theme: kbaseIncubator/kbase-github-pages-theme
 search_enabled: false
-aux_links: 
-    "KBase UI Docs on Github":
-        - "//github.com/kbaseIncubator/kbase-ui-docs"
-    "About KBase":
-        - "//kbase.us/about"
+aux_links:
+  "KBase UI Docs on Github":
+    - "//github.com/kbaseIncubator/kbase-ui-docs"
+  "About KBase":
+    - "//kbase.us/about"
 navigation:
   menu:
     - label: Overview
+    - label: About
+      menu:
+        - label: History
+        - label: Current Interfaces
+        - label: Evolution
+        - label: Layout
+        - label: Architecture
+        - label: Development
+        - label: Deployment
     - label: Getting Started
       slug: getting-started
       menu:
-          - label: Prerequisites
-          - label: Quick Start
+        - label: Prerequisites
+        - label: Quick Start
     - label: Development
       menu:
         - label: Prerequisites
@@ -29,26 +38,26 @@ navigation:
         - label: Team
         - label: Deployment
     - label: Tools
-      menu: 
+      menu:
         - label: Storybook
-        - label: Visual Studio Code 
+        - label: Visual Studio Code
     - label: Guides
       menu:
         - label: Plugins
           menu:
             - label: Create a Plugin
               menu:
-                  - label: 1. Setup
-                  - label: 2. Create Repos
-                  - label: 3. Dev Tools
-                  - label: 4. Say Hello
-                  - label: 5. A Quick Refactor
-                  - label: 6. Setup as Plugin
-                  - label: 7. Add Ant Design
-                  - label: 8. Add to KBase UI 
-                  - label: 9. Add Testing
-                  - label: 10. Add Documentation
-                  - label: 11. Fin
+                - label: 1. Setup
+                - label: 2. Create Repos
+                - label: 3. Dev Tools
+                - label: 4. Say Hello
+                - label: 5. A Quick Refactor
+                - label: 6. Setup as Plugin
+                - label: 7. Add Ant Design
+                - label: 8. Add to KBase UI
+                - label: 9. Add Testing
+                - label: 10. Add Documentation
+                - label: 11. Fin
         - label: Documentation
           menu:
             - label: Overview
@@ -60,7 +69,6 @@ navigation:
           menu:
             - label: Theming
             - label: Tips
-   
 # markdown: kramdown
 # kramdown:
 #     highlighter: rouge
