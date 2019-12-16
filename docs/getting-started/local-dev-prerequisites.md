@@ -8,14 +8,14 @@ For full-blown development of kbase-ui, these same two dependencies would suffic
 
 You will need to ensure that you have a basic set of development tools on your host desktop machine. These tools are available on Mac, Linux, and Windows.
 
-| app | version | notes |
-|-----|---------|------ |
-| nodejs | 6 (LTS) | The V8 javascript system, required for building kbase-ui and running tests; we are currently on version 8. |
-| npm | 6 | |
-| git    | * | the source revision management tool with integration into github |
-| docker | * | the linux container manager you will use to run kbase-ui |
-| dockerize | * | a utility to make running docker containers more sane |
-| make  | * | all build tasks go through make |
+| app       | version | notes                                                                                                      |
+| --------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| nodejs    | 6 (LTS) | The V8 javascript system, required for building kbase-ui and running tests; we are currently on version 8. |
+| npm       | 6       |                                                                                                            |
+| git       | *       | the source revision management tool with integration into github                                           |
+| docker    | *       | the linux container manager you will use to run kbase-ui                                                   |
+| dockerize | *       | a utility to make running docker containers more sane                                                      |
+| make      | *       | all build tasks go through make                                                                            |
 
 > \* we haven't documented any substantial differences between these tools regarding the kbase-ui development process. However, it is best to keep them always at the most recent version by updating your tool stack periodically
 
@@ -187,14 +187,14 @@ As mentioned above, you should have already installed xCode — xCode is require
 
 Download and follow the instructions at [https://www.macports.org/install.php](https://www.macports.org/install.php).
 
-> Macports will install its own binary path (/opt/local/bin:/opt/local/sbin/) ahead of the path used by xCode (/usr/bin). You can change that in ~/.profile if you wish.
+> Macports will install its own binary path (/opt/local/bin:/opt/local/sbin/) ahead of the path used by xCode (/usr/bin) by altering your shell startup script (~/.zshrc, ~/.profile, etc.).
 
 ##### 2) Use the terminal to install the dependencies using Macports
 
 open Terminal and issue the following commands:
 
 ```
-sudo port install nodejs6 npm5 git
+sudo port install nodejs12 yarn git
 ```
 
 Note that the version of nodejs is important. We try very hard to use the same version of nodejs in local development as KBase uses in build/deployment environments and as the Travis configuration uses. There are major changes between nodejs releases. Although a newer nodejs will be probably be able to run code written for an older version, the converse is not necessarily true, and it is certainly easy to start using features enabled by a newer node version if it is available. There may also be subtle differences in the building of dependencies through npm.

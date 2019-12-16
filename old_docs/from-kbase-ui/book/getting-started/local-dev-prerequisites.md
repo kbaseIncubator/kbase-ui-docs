@@ -8,14 +8,14 @@ For full-blown development of kbase-ui, these same two dependencies would suffic
 
 You will need to ensure that you have a basic set of development tools on your host desktop machine. These tools are available on Mac, Linux, and Windows.
 
-| app | version | notes |
-|-----|---------|------ |
-| nodejs | 6 (LTS) | The V8 javascript system, required for building kbase-ui and running tests; we are currently on version 8. |
-| npm | 6 | |
-| git    | * | the source revision management tool with integration into github |
-| docker | * | the linux container manager you will use to run kbase-ui |
-| dockerize | * | a utility to make running docker containers more sane |
-| make  | * | all build tasks go through make |
+| app       | version | notes                                                                                                      |
+| --------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| nodejs    | 6 (LTS) | The V8 javascript system, required for building kbase-ui and running tests; we are currently on version 8. |
+| npm       | 6       |                                                                                                            |
+| git       | *       | the source revision management tool with integration into github                                           |
+| docker    | *       | the linux container manager you will use to run kbase-ui                                                   |
+| dockerize | *       | a utility to make running docker containers more sane                                                      |
+| make      | *       | all build tasks go through make                                                                            |
 
 > \* we haven't documented any substantial differences between these tools regarding the kbase-ui development process. However, it is best to keep them always at the most recent version by updating your tool stack periodically
 
