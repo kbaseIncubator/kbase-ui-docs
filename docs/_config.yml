@@ -20,7 +20,7 @@ navigation:
         - label: Architecture
         - label: Development
         - label: Deployment
-    - label: Getting Started
+    - label: Getting Started!
       slug: getting-started
       menu:
         - label: Prerequisites
@@ -64,6 +64,13 @@ navigation:
             - label: Using Github Pages
             - label: Using TSDoc
             - label: Using TypeDoc
+        - label: Maintaining This Document
+          menu:
+            - label: Configuration
+            - label: Menu
+            - label: Markdown
+            - label: Images
+            - label: Publishing
         - label: Ant Design
           slug: antd
           menu:

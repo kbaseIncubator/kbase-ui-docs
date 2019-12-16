@@ -4,7 +4,7 @@ The kbase-ui is a web app, composed of html, javascript, css, data files, image 
 
 In deployments, KBase uses an nginx proxy front end and rancher to orchestrate kbase-ui and other services which operate to form a connected set of services.
 
-For basic kbase-ui usage and local development, a special docker-compose configuration provides a proxy container as well as kbase-ui container to simulate this service configuration.
+For basic kbase-ui usage and local development, a developer-only docker-compose configuration provides a proxy container as well as kbase-ui container to simulate this service configuration.
 
 The requirements for them are simple: make, git, and docker.
 
@@ -14,17 +14,17 @@ For certain development tasks, or to run specific phases of the development proc
 
 You will need to ensure that you have a basic set of the following tools on your host desktop machine. These tools are available on Mac, Linux, and Windows.
 
-| app | version | notes |
-|-----|---------|------ |
-| docker | 18.x.x | the linux container manager you will use to build and run kbase-ui |
-| git    | * | the source revision management tool with integration into github |
-| make | >= 3.8 | any relatively recent make should work |
-| node | >= 8 | any recent version should work |
+| app    | version | notes                                                              |
+| ------ | ------- | ------------------------------------------------------------------ |
+| docker | 18.x.x  | the linux container manager you will use to build and run kbase-ui |
+| git    | *       | the source revision management tool with integration into github   |
+| make   | >= 3.8  | any relatively recent make should work                             |
+| node   | >= 8    | any recent version should work                                     |
 
 
 > \* we haven't documented any substantial differences between these tools regarding the kbase-ui development process. However, it is best to keep them always at the most recent version by updating your tool stack periodically.
 
-The reason for the relaxed version requirements is that kbase-ui is built inside of a Docker build process, using specific software package versions which are installed into a Docker image. The software requirements specified above are for local development tools only.
+The software requirements specified above are for local development tools only. Beause to this, the version requirements are relaxed. `kbase-ui` itself is built inside of a Docker build process, using specific software package versions which are installed into a Docker image. 
 
 ## macOS
 
