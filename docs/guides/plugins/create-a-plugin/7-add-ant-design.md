@@ -55,7 +55,6 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
                 addPresets: true,
                 addPlugins: true,
                 configure: (jestConfig, { env, paths, resolve, rootDir }) => {
-                    // jestConfig.transformIgnorePatterns = [`<rootDir>/node_modules/(?!${esModules})`];
                     jestConfig.transformIgnorePatterns = ['[/\\\\]node_modules[/\\\\](?!kbase-ui-lib|kbase-ui-components|antd/).+\\.js$'];
                     jestConfig.rootDir = './src';
                     jestConfig.moduleFileExtensions = ['ts', 'tsx', 'json', 'js'];
@@ -64,13 +63,6 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
                 }
             }
         },
-        // jest: {
-        //     configure: {
-        //         globals: {
-        //             "CONFIG": true
-        //         }
-        //     }
-        // },
         plugins: [
             {
                 plugin: CracoAntDesignPlugin,
