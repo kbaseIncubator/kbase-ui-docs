@@ -17,9 +17,15 @@ The primary reasons are:
 
 So, let's refactor `App.tsx`:
 
-1. Edit `react-app/src/App.tsx`
+1. Ensure that the tests are running. When doing refactoring, the test runner should always be running.
 
-2. Replace
+    ```bash
+    yarn test
+    ```
+
+2. Edit `react-app/src/App.tsx`
+
+3. Replace
 
    ```typescript
    const App: React.FC = () => {
@@ -33,14 +39,14 @@ So, let's refactor `App.tsx`:
    export default App;
    ```
 
-3. With:
+4. With:
 
    ```typescript
     export interface AppProps { }
 
     interface AppState { }
 
-    export default class App<AppProps, AppState> extends React.Component {
+    export default class App extends React.Component<AppProps, AppState> {
         render() {
             return (
                 <div className="App">
@@ -51,11 +57,7 @@ So, let's refactor `App.tsx`:
     }
    ```
 
-4. Re-run test
-
-   ```bash
-   yarn test
-   ```
+5. After saving the changes, the test runner should show success.
 
 ## Next Step
 

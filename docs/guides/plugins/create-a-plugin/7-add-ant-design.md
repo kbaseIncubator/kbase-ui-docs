@@ -2,13 +2,13 @@
 
 Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the base component library.
 
-1. Add Component Library Support
+1. Add Ant Design Component Library Support
 
    ```bash
-   yarn add antd @craco/craco craco-antd nodemon
+   cd react-app
+   yarn add -E antd @craco/craco craco-antd
+   yarn add -D -E nodemon
    ```
-
-   > Don't forget to clean up `package.json`.
 
 2. Set up craco
 
@@ -21,8 +21,7 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "install-plugin": "bash scripts/install-plugin.bash"
+        "eject": "react-scripts eject"
    },
    ```
 
@@ -30,10 +29,9 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
 
    ```json
    "scripts": {
-        "start": "nodemon -w ./craco.config.js -w ./src/custom/style/antd/theme.less --exec 'craco start'",
+        "start": "nodemon -w ./craco.config.js -w ./node_modules/@kbase/ui-lib/lib/custom/antd/theme.less --exec 'craco start'",
         "build": "craco build",
-        "test": "react-scripts test",
-        "install-plugin": "bash scripts/install-plugin.bash"
+        "test": "react-scripts test"
    },
    ```
 
@@ -77,7 +75,10 @@ Modern KBase user interfaces utilize [Ant Design](https://ant.design) as the bas
             {
                 plugin: CracoAntDesignPlugin,
                 options: {
-                    customizeThemeLessPath: path.join(__dirname, 'node_modules/@kbase/ui-components/lib/custom/antd/theme.less')
+                    customizeThemeLessPath: path.join(__dirname, 'node_modules/@kbase/ui-components/lib/custom/antd/theme.less'),
+                    styleLoaderOptions: {
+                        insert: 'body'
+                    }
                 }
             }
         ],
