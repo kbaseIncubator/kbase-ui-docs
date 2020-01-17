@@ -61,10 +61,14 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
    - Edit `react-app/src/App.css`
 
      - Remove all of the styles except that for `.App`.
+     - Remove the styles from `.App`.
 
-   - Remove the file `react-app/logo.svg`
+   - Remove the files:
+     - `react-app/logo192.png`
+     - `react-app/logo512.png`
+     - `favicon.ico`
 
-   - When you visit the the browser window,  should now say "Hello!"
+   - When you visit the the browser window, it should still "Hello!"
 
      ```bash
      yarn run start
@@ -77,6 +81,28 @@ Now we need to add enough structure to the plugin to allow it to say "Hello". Af
    ```bash
    yarn test
    ```
+
+   Ah, it doesn't pass! That is because we changed the App.tsx.
+
+    You should have noticed that the test script did not return to the command line. The default mode for testing is to re-test whenever any code file is changed.
+
+7. Fix the test:
+    - Open the test file `App.test.tsx`
+    - Change the line
+  
+    ```jsx
+    const linkElement = getByText(/learn react/i);
+    ```
+
+    to
+
+     ```jsx
+    const linkElement = getByText(/Hello!/i);
+    ```
+
+8. The test should automatically run again, and this time pass.
+
+    Stop the test by pressing `^C` in the terminal window.
 
 ## Next Step
 

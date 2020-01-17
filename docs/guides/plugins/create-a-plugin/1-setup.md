@@ -13,7 +13,7 @@ Read the [prerequisites](getting-started/prerequisites.md) guide to ensure your 
 4. Clone the _kbase/kbase-ui_ repo into this folder:
 
    ```bash
-   git clone -b feature-refactor-to-crats https://github.com/{YOUR_ACCOUNT}/kbase-ui
+   git clone -b develop https://github.com/{YOUR_ACCOUNT}/kbase-ui
    ```
 
    where `{YOUR_ACCOUNT}` is your personal github account to which you have forked the upstream https://github.com/kbase/kbase-ui. Of course, if you prefer to work with ssh authorization, use that form instead:
@@ -21,8 +21,6 @@ Read the [prerequisites](getting-started/prerequisites.md) guide to ensure your 
    ```bash
    git clone -b develop ssh://git@github.com/{YOUR_ACCOUNT}/kbase-ui
    ```
-
-   > During June 2019 the correct branch is actually `refactor-to-crats`, the feature branch we are actively developing to support this architecture.
 
 5. Create and launch the kbase-ui image:
 

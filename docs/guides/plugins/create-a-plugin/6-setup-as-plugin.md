@@ -30,9 +30,9 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     "proxy": "https://ci.kbase.us"
     ```
 
-    You may proxy this development server to any KBase environment, such as production. However, in normal practice we proxy against CI in order to avoid potential disruption those environments.
+    You may proxy this development server to any KBase environment, such as production, simply by changing the proxy url. However, in normal practice we proxy against CI in order to avoid potential disruption those environments.
 
-    > TODO: We should probably support proxying against any kbase deployment without having to tweak package.json, which might be accidentally checked in with a dev change.
+    > TODO: We now support proxying against any deployment environment via the command line using a more advanced proxying configuration...
 
     > TODO: add chapter on advanced proxying...
 
@@ -43,14 +43,18 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - Install the _kbase-ui-lib_ package. This package contains general support for working with KBase, including service libraries.
 
       ```bash
-      yarn add @kbase/ui-lib
+      yarn add -E @kbase/ui-lib 
       ```
 
     - Install the _kbase-ui-components_ package. This package contains component-specific support, plugin component support, as well as custom KBase components.
 
         ```bash
-        yarn add @kbase/ui-components
+        yarn add -E @kbase/ui-components
         ```
+
+    > TODO: Hmm, it looks like package-lock.json someone got in there. it needs to be removed - also, need to determine why it is there in the first place.
+
+    - if `package-lock.json` is present in the directory, remove it.
 
 5. Fix new dependency
 
@@ -60,18 +64,21 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - note the new dependencies:
 
       ```json
-      "@kbase/ui-lib": "^1.0.0",
+      "@kbase/ui-lib": "x.y.z",
+      "@kbase/ui-components": "x.y.z",
       ```
+
+      where `x.y.z` is the current version of `@kbase/ui-lib`.
+
+    - fix other dependencies
+
+      Note that other dependency version have a caret character `^` prefix. 
 
       The `^` prefix to the dependency versions means that npm is allowed to install the most recent version of the package with the same major version number. Thus a version expression of `^1.0.0` may result in version `1.5.13` being installed.
 
       We would rather our builds be deterministic and repeatable, so we want to simply remove the `^` prefix. npm will have installed the most recent versions of the packages, so we don't have to inspect the versions to ensure we have the most recent one.
 
-      > Note that as this documentation is being written, this dependency expression actually looks like the following, and does not need editing.
-
-      ```json
-      "@kbase/ui-lib": "0.1.0-alpha.50",
-      ```
+      The `-E` option used in our commands will ensure that new dependency versions are recorded exactly in package.json
 
 6. Install redux:
 
@@ -80,10 +87,8 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - install redux packages
 
       ```bash
-      yarn add redux react-redux @types/react-redux redux-thunk
+      yarn add -E redux react-redux @types/react-redux redux-thunk
       ```
-
-    - fix up the dependencies to remove the `^` as described above.
 
 7. Create redux implementation files
 
@@ -158,7 +163,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       import React from "react";
       import { Provider } from "react-redux";
       import { createReduxStore } from "./redux/store";
-      import { AppBase } from "@kbase/ui-lib";
+      import { AppBase } from "@kbase/ui-components";
       import "./App.css";
 
       const store = createReduxStore();
@@ -190,14 +195,47 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
 
 9. Test it
 
+
     After a major set of changes like this, it is prudent to run the tests, and to exercise the web app, to ensure we didn't introduce bugs.
 
     ```bash
     yarn test
-    yarn start
     ```
 
-    The first thing you should notice is that the app now takes a log longer to compile. We've added a bunch more code, and Typescript compilation and the bundling process can slow down quite a bit when more code is added.
+    The first thing you may notice is that the app now takes longer to compile. We've added a bunch more code, and Typescript compilation and the bundling process can slow down quite a bit when more code is added.
+
+    The second notable event is that the test no longer passes!
+
+    This is because our app is now nested inside the kbase integration layer, which asynchronously integrates with kbase-ui. Thus the `<App />` component is not loaded synchronously, and the expected `Hello!` text is not present immediately after the component is created.
+
+    To fix this, alter the contents of `App.test.tsx` to:
+
+    ```typescript
+    import React from 'react';
+    import { render, wait } from '@testing-library/react';
+    import App from './App';
+
+    test('renders learn react link', async () => {
+        const { getByText } = render(<App />);
+
+        await wait(() => {
+            const linkElement = getByText(/Hello!/i);
+            expect(linkElement).toBeInTheDocument();
+        });
+    });
+    ```
+
+    Note that we've moved the code which performs the inspection of the DOM to look for the required content into a function provided to `wait()`. The wait function will repeatedly run that function if the expectation fails, for up to 4.5 seconds. If the expectation does not succeed by the end of that interval, the test fails.
+
+    > See: [Testing Library Docs](https://testing-library.com/docs/dom-testing-library/api-async)
+
+    After saving these changes, the test should run again, and pass.
+
+10. Run the app
+
+    ```bash
+    yarn start
+    ```
 
     The first thing you should notice is that instead of "Hello" and "Hi!", you now are confronted with a dialog box
 
@@ -211,7 +249,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
 
     ![Dev Authorization Form - Authorized](./images/authorized-form.png)
 
-10. Walk like a Duck
+11. Walk like a Duck
 
     Now we need to add the files kbase-ui expects in order to load this web app as a plugin.
 
@@ -250,40 +288,121 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
               icon: flask
       ```
 
+      > TODO: make this simpler; we can get rid of the params.plugin and the widget setting
+
       [ discuss it here ]
 
-11. Adjust CRA build
+12. Adjust CRA build
 
-    Now that we have a "home" for the plugin, we need to ensure that the web app is available within the plugin. 
+    Now that we have a "home" for the plugin, we need to ensure that the web app is available within the plugin.
 
-    We accomplish this simply by copying the static build into the `iframe_root` directory.
+    You may have noticed that running `yarn build` creates a directory `react-app\build`. This directory contains the entire web app, compiled into a small set of files.
 
-    - Create a `scripts` directory in the `react-app` directory:
+    This directory is excluded from our repo via .gitignore, because we need to prepare the plugin directory in a specific manner in order to integrate it into kbase-ui.
+
+    <!-- We accomplish this simply by copying the static build into the `iframe_root` directory. -->
+
+    - Create a `scripts` directory in the top level directory:
 
         ```bash
-        mkdir react-app/scripts
+        mkdir scripts
         ```
 
-    - Create a `install-plugin.bash` file in the `scripts` directory with the following content:
+    - Add some developer dependencies:
+      - `yarn add -E -D bluebird tar fs-extra`
 
-      ```bash
-      rm -rf ../plugin/iframe_root
-      cp -pr build ../plugin/iframe_root
-      ```
+      > Note: this adds a package.json file at the top level of the repo.
 
-    - Add a this as a npm script `install-plugin` to `package.json` in `react-app`:
+    - Create a `install-plugin.js` file in the `scripts` directory with the following content:
+
+        ```javascript
+        /*eslint-env node */
+        /*eslint strict: ["error", "global"] */
+        'use strict';
+        const bluebird = require('bluebird');
+        const fs = bluebird.promisifyAll(require('fs-extra'));
+        const path = require('path');
+        const tar = require('tar');
+
+        /*
+        Copy the react-app build files into the iframe_root directory of the
+        dist/plugin.
+        */
+        async function copyBuildFiles(rootDir) {
+            const root = rootDir.split('/');
+            const source = root.concat(['react-app', 'build']).join('/');
+            const dest = root.concat(['dist', 'plugin', 'iframe_root']).join('/');
+            await fs.ensureDirAsync(dest);
+            await fs.copyAsync(source, dest);
+        }
+
+        async function removeDist(rootDir) {
+            const root = rootDir.split('/');
+            const dist = root.concat(['dist']).join('/');
+            await fs.removeAsync(dist);
+        }
+
+        /*
+        Create the dist directory, and copy the plugin directory into it.
+        */
+        async function copyPluginTemplate(rootDir) {
+            const root = rootDir.split('/');
+            const source = root.concat(['plugin']).join('/');
+            const dest = root.concat(['dist', 'plugin']).join('/');
+            await fs.ensureDirAsync(dest);
+            await fs.copyAsync(source, dest);
+        }
+
+        async function taritup(rootDir) {
+            const dir = 'dist';
+            const dest = rootDir.concat(['dist.tgz']).join('/');
+            console.log('tarring from ' + dir + ', to ' + dest);
+            return tar.c({
+                gzip: true,
+                file: dest,
+                portable: true,
+                cwd: rootDir.join('/')
+            }, [
+                dir
+            ]);
+        }
+
+        async function main() {
+            const cwd = process.cwd().split('/');
+            const projectPath = path.normalize(cwd.join('/'));
+            console.log(`Project path: ${projectPath}`);
+
+            // Remove dist
+            console.log('Remove dist...');
+            await removeDist(projectPath);
+
+            // Copy files to dist.
+            console.log('Copying files to dist...');
+            await copyPluginTemplate(projectPath);
+            await copyBuildFiles(projectPath);
+
+            // Tar up dist
+            console.log('tar-ing dist...');
+            try {
+                await taritup(projectPath.split('/'));
+            } catch (ex) {
+                console.error('Error tarring up dist! ' + ex.message);
+            }
+            console.log('done');
+        }
+
+        main();
+        ```
+
+    - Add a this as a npm script `install-plugin` to the top level `package.json`:
   
       ```json
       "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "install-plugin": "bash scripts/install-plugin.bash"
+        "install-plugin": "node scripts/install-plugin.js"
       }
       ```
 
-12. Add new top level support:
+13. Add new top level support:
 
     - Create the file `LICENSE.md` at the top level of your repo, with the following content:
 
@@ -318,32 +437,39 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
     - Copy the following sample into `README.md` and complete each relevant section. Unnecessary sections may be removed.
 
       ```markdown
-      # TITLE
+        # TITLE
 
-      > SINGLE SENTENCE
+        > SINGLE SENTENCE
 
-      BRIEF DESCRIPTION
+        BRIEF DESCRIPTION
 
-      ## Usage
-      HOW TO GET STARTED and USE IT
+        ## Usage
 
-      ## Install
-      INSTALLATION OF DEPENDENCIES, THE THING ITSELF
+        HOW TO GET STARTED and USE IT
 
-      ## Background
-      HOW THIS FITS INTO KBASE
+        ## Install
 
-      ## API
-      IF IT IS A LIBRARY OR SERVICE
+        INSTALLATION OF DEPENDENCIES, THE THING ITSELF
 
-      ## Acknowledgments
-      - NAME - COMMENT
+        ## Background
 
-      ## See Also
-      -  [TITLE](URL)
+        HOW THIS FITS INTO KBASE
 
-      ## License
-      SEE LICENSE IN LICENSE.md
+        ## API
+
+        IF IT IS A LIBRARY OR SERVICE
+
+        ## Acknowledgments
+
+        - NAME - COMMENT
+
+        ## See Also
+
+        - [TITLE](URL)
+
+        ## License
+
+        SEE LICENSE IN LICENSE
       ```
 
       - Refs
@@ -356,7 +482,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       ```markdown
       ```
 
-    - We also need to add a top level `package.json`.
+    - We also need to add additional information to the top level `package.json`.
 
       ```json
       {
@@ -368,15 +494,14 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
           "common-readme": "^1.1.0"
         },
         "scripts": {
-          "test": "echo \"Error: no test specified\" && exit 1",
-          "build-plugin": "bash scripts/build-plugin.bash"
+            "build-plugin": "bash scripts/build-plugin.bash"
         },
         "repository": {
           "type": "git",
           "url": "git+https://github.com/kbase/kbase-ui-plugin-{PLUGIN}.git"
         },
         "author": "KBase Developers",
-        "license": "SEE LICENSE IN LICENSE.md",
+        "license": "SEE LICENSE IN LICENSE",
         "bugs": {
           "url": "https://github.com/kbase/kbase-ui-plugin-{PLUGIN}/issues"
         },
@@ -384,23 +509,18 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       }
       ```
 
-    - Create the `scripts` directory at the top level
-
-      ```bash
-      mkdir scripts
-      ```
-
     - Create the `build-plugin.bash` script in the `scripts` directory:
 
       ```bash
       echo "Running plugin build script"
       cd react-app && \
-      yarn install --no-lockfile --cache-folder=".yarn-cache" && \
+      yarn install --cache-folder=".yarn-cache" && \
       echo "✓ dependencies installed successfully" && \
       yarn build && \
       echo "✓ built successfully" && \
       yarn test --watchAll=false && \
       echo "✓ tests run successfully" && \
+      cd .. && \
       yarn install-plugin && \
       echo "✓ plugin setup successfully" && \
       echo "✓ plugin installed successfully"
@@ -412,7 +532,7 @@ So far we have managed to create a simple CRA-based web app, with a few tweaks. 
       yarn build-plugin
       ```
 
-13. Push up plugin repo
+14. Push up plugin repo
 
     We are about to add the plugin to the kbase-ui build config. When we do this there are two methods available - bower (deprecated) and git. We'll use the git method.
 
