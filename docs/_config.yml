@@ -34,6 +34,18 @@ navigation:
         - label: Documentation
         - label: Unit Testing
         - label: Integration Testing
+          menu:
+            - label: 1. Overview
+            - label: 2. Setup
+            - label: 3. Getting Started
+            - label: 4. Test Scripts
+            - label: 5. Actions
+            - label: 6. Wait
+            - label: 7. Test Data
+            - label: 8. UI Tests
+            - label: 9. Plugin Tests
+            - label: 10. Predefined Subtasks
+            - label: 11. Development
         - label: QA
         - label: Team
         - label: Deployment
