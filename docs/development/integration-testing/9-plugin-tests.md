@@ -92,4 +92,4 @@ specs:
             value: data-search
 ```
 
-[10. Predefined Subtasks](./10-predefined-subtasks)
+[10. Subtasks](./10-subtasks)
