@@ -2,11 +2,11 @@
 
 In the kbase-ui integration test system, tests are provided as _test scripts_. A test script is not a programmatic script (javascript, python, etc.) but rather a set of testing instructions provided in a yaml formatted file.
 
-Testing scripts are provided in three basic forms: ui tests, plugin tests and predefined subtasks. All of these test scripts adhere to the format described in the next few chapters. In future chapters we'll describe how these types of tests differ.
+Testing scripts are provided in three basic forms: ui tests, plugin tests and predefined subtasks. Plugin tests are by far the most numerous, as most kbase-ui functionality is provided by plugins. All of these test scripts adhere to the format described in the next few chapters. In future chapters we'll describe how these types of tests differ.
 
 A set of test scripts can be referred to as a test suite.
 
-## Test Script Format
+## Format Overview
 
 The basic structure of a test script file is:
 
@@ -39,7 +39,7 @@ Notable features of this simple test script:
 - Each test script can have one or more test cases (in this example there is only one test case)
 - Each test case has a description which should describe the purpose of the case
 - Each test case has one or more test tasks
-- one type of task is an `action`. An action may require task properties. 
+- one type of task is an `action`. An action may require task properties.
   - The `navigate` action initiates a change in the `hash` property of the browser; the value of the hash is provided by the `path` property
 - another type of task is the `subtask`. Think of subtasks as canned sets of tasks which are inserted into the test script. Subtasks are handy for supporting DRY tests -- sequences of oft-used or obscure script steps can be captured and stored with kbase-ui for all integration test scripts to us (they can also be defined in the test script itself)
   - In this case the subtask is `plugin`, a built-in task which will select the plugin wrapper iframe.
@@ -82,21 +82,27 @@ In Step 5.3 we can interact with a dom node. The most common action is to click 
 
 A test case, dedicated to testing a specific feature, will typically utilize a sequence of steps 5.1, 5.2, and 5.3 to walk through the interface, interact with it, and observe how it responds.
 
-## Test
+## Format in Detail
 
-Each test script has a single top level node which describes the test. 
+### Test
 
-### `description`
+Each test script has a single top level node which describes the test.
+
+#### `description`
 
 The most important aspect of it is the `description` field. This field should briefly describe the test. It will be printed in the test results, so should be descriptive enough to distinguish the test amongst many. It should mention the area of functionality it applies to (e.g. plugin) and the overall purpose of the test.
 
-### `baseSelector`
+#### `baseSelector`
 
 A `baseSelector` may be defined, which will be applied to all test case tasks which specify document navigation with a selector and are not set to be absolute. It can be handy to avoid boilerplate in selectors, since a set of test cases may apply to the same DOM subtree.
 
 > Note that base selectors are not useful for external plugins since they have been migrated to the plugin architecture. Navigation into iframes is handled differently than simple DOM node navigation.
 
 To find out more about selectors, please see the section below.
+
+#### `subtasks`
+
+[ TO BE DONE ]
 
 #### `cases`
 
@@ -105,6 +111,8 @@ Each test provides one or more test cases. A test case is really a test instance
 Almost every test begins with a `login` subtask followed by a `navigation` action. This is the equivalent of a user opening a browser, putting in the top level kbase url, logging in, and then navigating to a ui feature, typically provided by a plugin.
 
 > NOTE: The older term for a test case is a test _spec_. The terms are synonymous within test scripts.
+
+### Case
 
 #### `description`
 
@@ -133,11 +141,13 @@ The main purpose of a test case is to provide a set of instructions for poking a
 
 Test tasks are executed from top to bottom. Any task which fails, for whatever reason, causes the entire test case to fail.
 
-##### `title`
+### Task
+
+#### `title`
 
 A description of the step, may be printed in test results. Optional.
 
-##### `action`
+#### `action`
 
 The action property causes the test runner to interact with the browser to cause some sort of change.
 
@@ -169,21 +179,13 @@ In fact, we can achieve the same thing by selecting and clicking the search menu
 
 See the chapter [Actions](./5-actions) for descriptions of all available actions.
 
-###### `navigate`
-
-
-
-###### `click`
-
-
-
-##### `wait`
+#### `wait`
 
 A wait task selects a node and waits for some condition about it to be available. A wait task will "wait" for a period of time for the condition to be true. If the condition does not come about within that time period, the task and test spec fails.
 
 The task timeout defaults to 10 seconds, but may also specified by the `timeout` property.
 
-The selection is specified by the `selector` property.
+The selection is specified by the `selector` property, see [selectors](#selectors).
 
 The condition to test is specified by the value of the `wait` property, and also associated properties.
 
@@ -193,65 +195,13 @@ Wait conditions include:
     - numeric value
     - number of matching elements
 
-[ LEFT OFF HERE ]
-
-##### `subtasks`
+#### `subtask`
 
 Subtasks are very important to creating more compact, _dry_ tests. A subtasks is, literally, a set of test spec steps provided by a separate yaml file and identified by the base name of the file. This allows us to provide commonly repeated steps as subtasks, using only the id of the subtask.
 
-All subtasks are provided by kbase-ui in the folder `src/test/integration-tests/specs/subtasks`. Each subtask is defined in a yaml file, with the base file name (the part before the `.yaml`) becoming the subtask id.
+[See below for a description of subtasks](#subtasks)
 
-At present, three subtasks are defined - _login_, _logout_, and _plugin_.
-
-For example, the `plugin` subtask is provided by the file `plugin.yaml`, which has the contents:
-
-```yaml
-# A subtask to navigate to the iframe containing an external plugin.
----
-title: Plugin Task
-tasks:
-  - wait: forElement
-    selector:
-      type: absolute
-      path:
-        - type: iframe
-          value: plugin-iframe
-  - action: switchToFrame
-```
-
-Although we haven't described test spec steps in detail, let's review what this subtask:
-
-1. It has a description provided through a yaml comment. This is only for documentation in the file, it is not used by the integration tests at all.
-2. It provides a set of tasks under the `tasks` key.
-3. The first step is to wait for an element described by an absolute (starts at document) selector path. The test runner will wait for the specified element to become available, and fail if it is not available within a given amount of time. Since that time is not given (it is the `timeout` key), the default of 10 seconds is used.
-4. The selector path has one component, `[[data-k-b-testhook-iframe="plugin-iframe"]`. This testhook attribute is provided by kbase-ui in components which provide iframe support.
-5. Finally, an action is executed; in this case causing the browser context to switch to the iframe window within the element found previously. 
-
-#### navigation tasks
-
-The navigation task causes the provided navigation path to be provided to the browser as a url hash (fragment). This is the technique currently utilized to trigger navigation.
-
-> NB this will need updating when we migrate to html5 history paths
-
-A navigation task is typically run at as either the first or second step. Through navigation we are activating some part of the ui as if the user navigated to it.
-
-```yaml
-            - title: navigate to dashboard
-              action: navigate
-              path: dashboard
-```
-
-In the example above:
-
-
-
-##### action
-
-Other than subtasks, very step specifies some sort of action for the test to run. All actions are invoked through the `action` key. The value of the action key is the action id.
-
-All available actions are listed below. [ link here ]
-
-#### selectors
+## selectors
 
 A key concept of the integration test scripts is dom navigation. After all, the primary mechanism of integration tests is to poke at the ui and observe how it changes. Both the actions and observations require that one specify a location within the DOM -- and that location is defined by a DOM selector.
 
@@ -310,23 +260,38 @@ In the test script:
   value: someclass
 ```
 
-#### Spec
 
-## kbase-ui integration test runner
+## Subtasks
 
-[ describe the test runner scripts ]
+Subtasks are very important to creating more compact, _dry_ tests. A subtasks is, literally, a set of test spec steps provided by a separate yaml file and identified by the base name of the file. This allows us to provide commonly repeated steps as subtasks, using only the id of the subtask.
 
-## Integration Test Script
+All subtasks are provided by kbase-ui in the folder `src/test/integration-tests/specs/subtasks`. Each subtask is defined in a yaml file, with the base file name (the part before the `.yaml`) becoming the subtask id.
 
-Adding Testhooks
+At present, three subtasks are defined - _login_, _logout_, and _plugin_.
 
-## Testing Scenarios
+For example, the `plugin` subtask is provided by the file `plugin.yaml`, which has the contents:
 
-### As you develop
+```yaml
+# A subtask to navigate to the iframe containing an external plugin.
+---
+title: Plugin Task
+tasks:
+  - wait: forElement
+    selector:
+      type: absolute
+      path:
+        - type: iframe
+          value: plugin-iframe
+  - action: switchToFrame
+```
 
-### Before a release
+Although we haven't described test spec steps in detail, let's review what this subtask:
 
-### In Travis
+1. It has a description provided through a yaml comment. This is only for documentation in the file, it is not used by the integration tests at all.
+2. It provides a set of tasks under the `tasks` key.
+3. The first step is to wait for an element described by an absolute (starts at document) selector path. The test runner will wait for the specified element to become available, and fail if it is not available within a given amount of time. Since that time is not given (it is the `timeout` key), the default of 10 seconds is used.
+4. The selector path has one component, `[[data-k-b-testhook-iframe="plugin-iframe"]`. This testhook attribute is provided by kbase-ui in components which provide iframe support.
+5. Finally, an action is executed; in this case causing the browser context to switch to the iframe window within the element found previously. 
 
 ## Browsers
 
@@ -344,28 +309,15 @@ Safari currently works. Don't know how to run headless yet. A bit finicky though
 
 First:
 
--   Open Safari:
+- Open Safari:
 
-    -   enable developer menu (Preferences > Advanced > Show Developer menu in menu bar)
-    -   enable automation (Developer > Allow Remote Automation )
+  - enable developer menu (Preferences > Advanced > Show Developer menu in menu bar)
+  - enable automation (Developer > Allow Remote Automation )
 
--   From Terminal:
+- From Terminal:
 
-    -   /usr/bin/safaridriver --enable
+  - /usr/bin/safaridriver --enable
 
     ​
-
-## task actions
-
-setSessionCookie
-deleteSessionCookie
-navigate
-keys
-switchToFrame
-switchToParent
-baseSelector
-click
-setValue
-log
 
 [5. Actions](./5-actions)
