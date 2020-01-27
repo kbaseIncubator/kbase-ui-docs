@@ -57,7 +57,7 @@ During test development, it is nearly impossible to avoid a bit of refactoring i
 ```yaml
 ---
 description: Accessing data search without authentication
-specs:
+cases:
   - description: should get the signin page
     tasks:
     - action: navigate
@@ -79,7 +79,7 @@ specs:
 ```yaml
 ---
 description: Accessing data search with authentication
-specs:
+cases:
   - description: should load the data-search plugin
     tasks:
       - subtask: login

@@ -13,7 +13,7 @@ The basic example test in the previous chapter exemplifies the usage of two subt
 ```yaml
 ---
 description: Accessing data search with authentication
-specs:
+cases:
   - description: should load the data-search plugin
     tasks:
       - subtask: login
