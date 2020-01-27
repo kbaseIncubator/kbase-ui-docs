@@ -29,6 +29,8 @@ You'll need the Globus password for `kbaseuitest`. It is located in the UI Resou
 
 Configuration values include core configuration like a user token, the associated username, and associated real name. At present, the only configuration value you need to replace is the `token` for each environment. This token can be obtained by logging into each environment as the user `kbaseuitest` and copying the value of the `kbase_session` cookie field. (E.g. in the browser javascript console, enter `document.cookie` to expose the current cookie.)
 
+> The password for the `kbaseuitest` account can be found in the [UI Developer's Google Doc](https://docs.google.com/document/d/1SbWTH00TDWuZ5JKclZkEohJxR-digmgkAWE0Gh7uhZw/edit), if you have access to it. (And if not, contact a KBase UI developer, e.g. on the #ui slack channel.)
+
 {% include_relative code-samples/config-template.md %}
 
 ## Running tests
