@@ -44,7 +44,7 @@ navigation:
             - label: 7. Test Data
             - label: 8. UI Tests
             - label: 9. Plugin Tests
-            - label: 10. Predefined Subtasks
+            - label: 10. Subtasks
             - label: 11. Development
         - label: QA
         - label: Team

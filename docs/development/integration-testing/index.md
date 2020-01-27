@@ -9,5 +9,5 @@
 [Test Data](./7-test-data)  
 [UI Tests](./8-ui-tests)  
 [Plugin Tests](./9-plugin-tests)  
-[Predefined Subtasks](./10-predefined-subtasks)  
+[Subtasks](./10-subtasks)  
 [Development](./11-development)  
