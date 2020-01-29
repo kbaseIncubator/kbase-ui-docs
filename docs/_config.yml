@@ -46,6 +46,7 @@ navigation:
             - label: 9. Plugin Tests
             - label: 10. Subtasks
             - label: 11. Development
+            - label: 12. Testing Services
         - label: QA
         - label: Team
         - label: Deployment
