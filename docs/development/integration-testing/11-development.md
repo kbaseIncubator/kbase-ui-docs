@@ -36,6 +36,4 @@ The sources for integration testing include:
 
 [ to be written ]
 
-
-
-FIN
+[12. Testing Services](./12-testing-services)

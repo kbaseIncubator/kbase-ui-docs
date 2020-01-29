@@ -56,12 +56,12 @@ During test development, it is nearly impossible to avoid a bit of refactoring i
 
 ```yaml
 ---
-description: Accessing data search without authentication
+description: Accessing `MY_PLUGIN_PATH_DESCRIPTION` without authentication
 cases:
-  - description: should get the signin page
+  - description: should get the signin page with the path displayed
     tasks:
     - action: navigate
-      path: search
+      path: `MY_PLUGIN_PATH`
     - subtask: plugin
     - wait: forText
       selector:
@@ -71,25 +71,37 @@ cases:
           value: login-view
         - type: field
           value: requested-path
-      text: search
+      text: `MY_PLUGIN_PATH`
 ```
+
+where
+
+- `MY_PLUGIN_PATH_DESCRIPTION` is a description of the plugin accessible via the path
+- `MY_PLUGIN_PATH` is a path to the plugin
 
 ### Authenticated Basic
 
 ```yaml
 ---
-description: Accessing data search with authentication
+description: Accessing `MY_PLUGIN_PATH_DESCRIPTION` with authentication
 cases:
-  - description: should load the data-search plugin
+  - description: should load the `MY_PLUGIN_ID` plugin
     tasks:
       - subtask: login
       - action: navigate
-        path: search
+        path: `MY_PLUGIN_PATH`
       - subtask: plugin
       - wait: forElement
         selector:
           - type: plugin
-            value: data-search
+            value: `MY_PLUGIN_ID`
 ```
+
+where
+
+- `MY_PLUGIN_PATH_DESCRIPTION` is a description of the plugin accessible via the path
+- `MY_PLUGIN_PATH` is a path to the plugin
+- `MY_PLUGIN_ID` is the plugin's id
+
 
 [10. Subtasks](./10-subtasks)
