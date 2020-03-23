@@ -218,7 +218,7 @@ If you see messages like `ERROR '/search-data.json' not found.` in the terminal 
 
 
 
-## Background
+## Background 
 
 HOW THIS FITS INTO KBASE
 
