@@ -41,10 +41,31 @@ Read the [prerequisites](prerequisites.md) guide to ensure your host machine is 
    at the end of the file, then save it `[Shift][Z][Z]`
 
 7. Open a browser to [https://ci.kbase.us](https://ci.kbase.us)
-8. Since the proxy uses a _self-signed certificate_ to support https, your browser will likely complain. Just suffer through the prompts to allow the connection to proceed.[^2]
-9. You should now see kbase-ui 😊
-10. When done, you can simply press `[Control][C]` in the original terminal window to stop the containers.[^3]
-11. If you won't be conducting further builds for this instance, you'll want to clear out the intermediate build image:[^4]
+8. Since the proxy uses a _self-signed certificate_ to support https, your browser will likely complain. If your browser allow you to continue past the warning prompts, you can skip step 9.[^2]
+9. If needed, sign the proxy certificate with a local certificate authorirty.
+   - Install [mkcert](https://github.com/FiloSottile/mkcert) and [certutil](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil)
+     ```bash
+     brew install mkcert nss
+     ```
+   - Add the mkcert authority to your trust store
+     ```bash
+     mkcert -install
+     ```
+   - Generate a certificate
+     ```bash
+     make dev-cert
+     ```
+   - Relaunch & rebuild KBase-ui images
+     ```bash
+     make dev-stop
+     docker rmi kbase/kbase-ui:dev_build kbase/kbase-ui-proxy:dev
+     make dev-start
+     ```
+   - If your browser uses DNS-over-HTTPS (such as some Firefox installs), you will need to disable it for [https://ci.kbase.us](https://ci.kbase.us)
+     - In Firefox, you can go to [about:config](about:config), add `ci.kbase.us` to the `network.trr.excluded-domains` setting, then restart the browser.
+10. You should now see kbase-ui at [https://ci.kbase.us](https://ci.kbase.us) 😊
+11. When done, you can simply press `[Control][C]` in the original terminal window to stop the containers.[^3]
+12. If you won't be conducting further builds for this instance, you'll want to clear out the intermediate build image:[^4]
 
     ```bash
     make dev-clean
